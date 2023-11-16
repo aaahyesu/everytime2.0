@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 const Home: NextPage = () => {
   return (
     <div className="bg-red-500">
-      <h1 className="text-black">is it good?</h1>
+      <h1 className="text-black">메인화면</h1>
     </div>
   );
 };
