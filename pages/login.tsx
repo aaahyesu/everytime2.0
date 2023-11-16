@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "../public/logo.png";
 import Link from "next/link";
 
 export default function Enter() {
