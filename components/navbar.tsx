@@ -209,7 +209,7 @@ export default function Layout({
               </svg>
             </span>
           </Link>
-          <Link href="/services">
+          <Link href="/club">
             <span
               className={cls(
                 "flex flex-col items-center space-y-2",
