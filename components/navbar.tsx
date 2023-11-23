@@ -54,8 +54,8 @@ export default function Layout({
                   src="/search.png"
                   alt="검색"
                   className="hover:underline"
-                  width={40}
-                  height={40}
+                  width="25px"
+                  height="25px"
                 />
               </Link>
 
@@ -64,8 +64,8 @@ export default function Layout({
                   src="/mypage.png"
                   alt="마이페이지"
                   className="hover:underline"
-                  width={40}
-                  height={40}
+                  width="25px"
+                  height="25px"
                 />
               </Link>
             </div>

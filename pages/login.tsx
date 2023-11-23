@@ -42,9 +42,11 @@ export default function Enter() {
             value={userPw}
             className="w-full p-2 mb-4 border rounded focus:outline-none focus:border-blue-500"
           />
-          <button className="w-full p-2 bg-red-500 text-white rounded">
-            로그인
-          </button>
+          <Link href="/">
+            <button className="w-full p-2 bg-red-500 text-white rounded">
+              로그인
+            </button>
+          </Link>
         </form>
         <div className="text-red-600 text-center mt-5 font-medium text-base">
           <span className="text-gray-600 font-light mr-2">
