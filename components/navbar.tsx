@@ -29,7 +29,7 @@ export default function Layout({
       <div
         className={cls(
           !canGoBack ? "justify-right" : "",
-          "justify-right fixed top-0 flex h-[80px] w-full max-w-xl items-center border-b-2 bg-white px-4 text-lg font-[600] text-gray-800"
+          "justify-right fixed top-0 flex h-[72px] w-full max-w-xl items-center border-b-2 bg-white px-4 text-xl font-bold font-['Apple SD Gothic Neo'] leading-tight font-[600] text-gray-800"
         )}
       >
         {head ? (
@@ -95,7 +95,7 @@ export default function Layout({
             <span
               className={cls(
                 canGoBack
-                  ? "px-2 font-bold  font-['Apple SD Gothic Neo'] text-center text-lg"
+                  ? "px-2 font-bold  font-['Apple SD Gothic Neo'] text-center text-xl"
                   : ""
               )}
             >

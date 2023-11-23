@@ -14,9 +14,12 @@ datasource db {
 model User{
   id                Int            @id @default(autoincrement())
   phone             Int?           @unique
+  userId            String?        @unique
+  password          Int
   email             String?        @unique
+  birth             Int
   name              String     
-  nicName           String?        @unique
+  nickName           String?        @unique
   avatar            String?
   school            String
   services          Service[]       @relation(name: "services")
