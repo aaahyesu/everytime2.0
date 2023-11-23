@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.services-svg-icon {
+  fill: #c62917; /* 원하는 색상으로 변경 */
+}
