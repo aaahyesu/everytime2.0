@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Layout from "@/components/navbar";
 import { useForm } from "react-hook-form";
-import Link from "next/link";
 import useMutation from "@/libs/client/useMutation";
 import Input from "@/components/input";
 import { Service } from "@prisma/client";
@@ -23,22 +22,18 @@ interface UploadServiceMutation {
 const Upload: NextPage = () => {
   const router = useRouter();
   const { register, handleSubmit } = useForm<UploadServiceForm>();
-  const [maxNum, setMaxNum] = useState<number | string>(" ");
-  const [isInputFocused, setIsInputFocused] = useState(false);
-  const [category, setCategory] = useState("");
 
   const [uploadService, { loading, data }] =
     useMutation<UploadServiceMutation>("/api/services");
 
   const onValid = (data: UploadServiceForm) => {
-    const dataToSend = { ...data, maxNum }; // 모임인원 데이터 추가
     console.log(data);
     if (loading) return;
     uploadService(data);
   };
   useEffect(() => {
     if (data?.ok) {
-      router.replace(`/services/${data.service.id}`);
+      router.replace("/");
     }
   }, [data, router]);
   return (
@@ -68,21 +63,18 @@ const Upload: NextPage = () => {
             <select
               {...register("category", { required: true })}
               className="w-[250px] rounded-lg border border-zinc-300 p-2 text-slate-500"
-              value={category}
-              onBlur={() => setIsInputFocused(false)}
-              onChange={(e) => setCategory(e.target.value)}
             >
               <option value="" disabled hidden>
                 모임 분야
               </option>
-              <option value="스포츠">스포츠</option>
-              <option value="여행/여가">여행 / 여가</option>
-              <option value="스터디">스터디</option>
-              <option value="문화/생활">문화 /생활</option>
-              <option value="봉사활동">봉사활동</option>
-              <option value="동아리">동아리</option>
-              <option value="밥친구">밥친구</option>
-              <option value="공모전/대외활동">공모전 / 대외활동</option>
+              <option value="Sport">스포츠</option>
+              <option value="Trip">여행/여가</option>
+              <option value="Study">스터디</option>
+              <option value="Culture">문화/생활</option>
+              <option value="Volunteer">봉사활동</option>
+              <option value="Club">동아리</option>
+              <option value="Food">밥친구</option>
+              <option value="Contest">공모전/대외활동</option>
             </select>
           </div>
         </div>

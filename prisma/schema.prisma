@@ -15,13 +15,12 @@ model User{
   id                Int            @id @default(autoincrement())
   phone             Int?           @unique
   userId            String?        @unique
-  password          Int
+  password          String
   email             String?        @unique
-  birth             Int
-  name              String     
+  birth             String
+  name              String        @unique
   nickName           String?        @unique
-  avatar            String?
-  school            String
+  school            String?
   services          Service[]       @relation(name: "services")
   serviceUser       Service[]       @relation(name: "serviceUser")
   createdAt         DateTime        @default(now())

@@ -64,6 +64,34 @@ export default function List({
     categoryClass = "bg-blue-500";
     bgClass = "bg-blue-200 text-blue-800 ";
   }
+  let statusText = "";
+  let statusClass = "";
+
+  if (status === "Ing") {
+    statusText = "모집 중";
+    statusClass = "bg-green-500";
+    bgClass = " bg-green-100 text-green-800";
+  } else if (status === "End") {
+    statusText = "모집 완료";
+    statusClass = "bg-red-500";
+    bgClass = "bg-red-100 text-red-800 ";
+  } else if (status === "Recent") {
+    statusText = "최신 순";
+    statusClass = "bg-gray-500";
+    bgClass = "bg-gray-300 text-gray-800 ";
+  } else if (status === "Old") {
+    statusText = "오래된 순";
+    statusClass = "bg-blue-500";
+    bgClass = "bg-blue-200 text-blue-800 ";
+  } else if (status === "Max") {
+    statusText = "인원 적은 순";
+    statusClass = "bg-blue-500";
+    bgClass = "bg-blue-200 text-blue-800 ";
+  } else if (status === "Min") {
+    statusText = "인원 많은 순";
+    statusClass = "bg-blue-500";
+    bgClass = "bg-blue-200 text-blue-800 ";
+  }
 
   return (
     <Link href={link} className="hover:bg-gray-100">
