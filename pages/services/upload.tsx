@@ -42,7 +42,11 @@ const Upload: NextPage = () => {
       <form className="px-8 py-4" onSubmit={handleSubmit(onValid)}>
         <div className="my-2 pt-6">
           <div className="flex items-center">
-            <div className="w-10 h-10 relative bg-black mr-2"></div>
+            <img
+              src="/clubName.png"
+              alt="category"
+              className="w-10 h-10 mr-2"
+            />
             <div className="px-3"></div>
             <Input
               register={register("title", { required: true })}
@@ -58,7 +62,11 @@ const Upload: NextPage = () => {
 
         <div className="py-3">
           <div className="flex items-center">
-            <div className="w-10 h-10 relative bg-black mr-2"></div>
+            <img
+              src="/categoryList.png"
+              alt="category"
+              className="w-10 h-10 mr-2"
+            />
             <div className="px-3"></div>
             <select
               {...register("category", { required: true })}
@@ -81,7 +89,11 @@ const Upload: NextPage = () => {
 
         <div className="py-[4px]">
           <div className="flex items-center">
-            <div className="w-10 h-10 relative bg-black mr-2"></div>
+            <img
+              src="/personal.png"
+              alt="category"
+              className="w-10 h-10 mr-2"
+            />
             <div className="px-3"></div>
             <Input
               register={register("maxNum", { required: true })}
