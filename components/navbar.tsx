@@ -59,7 +59,7 @@ export default function Layout({
                 />
               </Link>
 
-              <Link href="#" className="hover:underline">
+              <Link href="/profile" className="hover:underline">
                 <img
                   src="/mypage.png"
                   alt="마이페이지"
