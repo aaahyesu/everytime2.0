@@ -34,19 +34,24 @@ export default function Layout({
       >
         {head ? (
           <div className="flex justify-between w-full items-center px-2 ">
-            <div className="space-x-4 w-96 h-18  pr-24 justify-start items-start gap-4 inline-flex">
-              <Link
-                href="#"
-                className="text-black text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
-              >
-                모임목록
-              </Link>
-              <Link
-                href="#"
-                className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
-              >
-                채팅
-              </Link>
+            <div className="flex flex-col">
+              <p className="text-red-700 text-xs font-medium font-['Apple SD Gothic Neo'] leading-3">
+                한경국립대학교
+              </p>
+              <div className="space-x-4 w-96 h-18  pr-24 justify-start items-start gap-4 inline-flex">
+                <Link
+                  href="#"
+                  className="text-black text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
+                >
+                  모임목록
+                </Link>
+                <Link
+                  href="#"
+                  className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
+                >
+                  채팅
+                </Link>
+              </div>
             </div>
             <div className="flex space-x-4 ">
               <Link href="#" className="hover:underline">

@@ -94,13 +94,13 @@ const Home: NextPage<ServiceResponse> = () => {
 
   return (
     <Layout head hasTabBar>
-      <div className="mt-6 flex flex-col px-1 py-8 ">
+      <div className="mt-5 flex flex-col px-1 py-8 ">
         <form>
           <div className="mt-4 flex">
             <button
               id="dropdown-button"
               className={`min-w-[115px] ml-auto inline-flex items-center rounded-[10px] border-[1.5px] bg-white px-4 py-2.5 text-center text-sm font-medium text-black hover:bg-white hover:text-black hover:text-center ${
-                isDropdownOpen ? "bg-gray-200" : ""
+                isDropdownOpen ? "bg-white" : ""
               }absolute left-4`}
               type="button"
               onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
@@ -118,7 +118,7 @@ const Home: NextPage<ServiceResponse> = () => {
               id="category-dropdown"
               className={`${
                 isCategoryDropdownOpen ? "block" : "hidden"
-              } absolute left-2 mt-11 min-w-[45px] divide-y rounded-[10px] border `}
+              } absolute z-10 left-4 mt-11 min-w-[45px] divide-y rounded-[10px] border `}
             >
               <ul
                 className="text-sm text-gray-700 "
@@ -128,7 +128,7 @@ const Home: NextPage<ServiceResponse> = () => {
                   <li key={categoryOption}>
                     <button
                       type="button"
-                      className={`w-full px-3 py-3 hover:bg-gray-100 ${
+                      className={`w-full px-3 py-3 bg-white hover:bg-white ${
                         categoryOption === selectedCategoryOption
                           ? "font-semibold"
                           : ""
@@ -147,8 +147,8 @@ const Home: NextPage<ServiceResponse> = () => {
             <div className="w-96 h-12 pl-[263px] ">
               <button
                 id="dropdown-button"
-                className={`w-45 ml-auto inline-flex items-center rounded-lg border-[1.5px]  bg-white px-4 py-2.5 text-center text-sm font-medium text-black focus:outline-none focus:ring-4 focus:ring-gray-100 ${
-                  isDropdownOpen ? "bg-gray-200" : ""
+                className={`w-45 ml-auto inline-flex items-center rounded-lg border-[1.5px] bg-white px-5 py-2.5 text-center text-sm font-medium text-black focus:outline-none focus:ring-4 focus:ring-gray-100 ${
+                  isDropdownOpen ? "bg-white" : ""
                 }`}
                 type="button"
                 onClick={() => setIsStatusDropdownOpen(!isStatusDropdownOpen)}
@@ -176,7 +176,7 @@ const Home: NextPage<ServiceResponse> = () => {
                 id="status-dropdown"
                 className={`${
                   isStatusDropdownOpen ? "block" : "hidden"
-                }   divide-y rounded-[10px] border border-gray-300`}
+                }  absolute z-10 divide-y rounded-[10px] border bg-white border-gray-300`}
               >
                 <ul
                   className=" py-1 text-sm text-gray-700 "
@@ -186,7 +186,7 @@ const Home: NextPage<ServiceResponse> = () => {
                     <li key={statusOption}>
                       <button
                         type="button"
-                        className={`w-full px-3 py-2 hover:bg-gray-100 ${
+                        className={`w-full px-4 py-2 bg-white hover:bg-white ${
                           statusOption === selectedStatusOption
                             ? "font-semibold"
                             : ""
@@ -211,15 +211,23 @@ const Home: NextPage<ServiceResponse> = () => {
               key={i}
               className="flex px-4 border-b pb-4 cursor-pointer justify-between"
             >
-              <div className="flex space-x-2 items-center">
-                <div className="px-1 pt-1 pb-1.5 rounded border border-red-700 flex justify-center items-center">
-                  <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
-                    모집중
+              <div className="flex-row items-center">
+                <div className="flex-row flex items-center space-x-1.5">
+                  <div className="w-10 px-1 pt-1 pb-1.5 rounded border border-red-700 justify-center items-center flex-row">
+                    <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
+                      모집중
+                    </div>
                   </div>
-                </div>
-                <div className="px-1 pt-1 pb-1.5 rounded border border-red-700 flex justify-center items-center">
-                  <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
-                    스포츠
+                  <div className="w-10 px-1 pt-1 pb-1.5 rounded border border-red-700 flex justify-center items-center">
+                    <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
+                      스포츠
+                    </div>
+                  </div>
+                  <div className="flex item-center space-x-1">
+                    <img src="/num.png" alt="Number" className="w-5 h-5" />
+                    <div className="text-zinc-500 text-sm font-['Apple SD Gothic Neo'] font-normal">
+                      5/12
+                    </div>
                   </div>
                 </div>
 
