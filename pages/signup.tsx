@@ -1,26 +1,37 @@
-import { useState } from "react";
+import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import useMutation from "@/libs/client/useMutation";
+import Input from "@/components/input";
 import Link from "next/link";
 
-export default function Enter() {
-  const [userId, setUserId] = useState("");
-  const [userPw, setUserPw] = useState("");
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthdate, setBirthdate] = useState("");
+interface MutationResult {
+  ok: boolean;
+}
 
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    if (name === "userId") setUserId(value);
-    else if (name === "userPw") setUserPw(value);
-    else if (name === "userName") setUserName(value);
-    else if (name === "email") setEmail(value);
-    else if (name === "birthdate") setBirthdate(value);
-  };
+interface EnterForm {
+  email?: string;
+  password?: string;
+  name?: string;
+  userId: string;
+  birth: string;
+}
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    // 로그인 처리 로직 추가
+const SignUp: NextPage = () => {
+  const router = useRouter();
+  const [enter, { loading, data, error }] =
+    useMutation<MutationResult>("/api/users/enter");
+  const { register, handleSubmit } = useForm<EnterForm>();
+  const onValid = (validForm: EnterForm) => {
+    if (loading) return;
+    enter(validForm);
   };
+  useEffect(() => {
+    if (data?.ok) {
+      router.replace(`/`);
+    }
+  }, [data, router]);
 
   return (
     <div className="w-full min-h-screen flex justify-center items-center flex-wrap">
@@ -34,52 +45,59 @@ export default function Enter() {
           </h2>
         </div>
 
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="userId"
-            placeholder="아이디"
-            onChange={onChange}
-            value={userId}
-            className="w-full p-2 mb-4 border rounded focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="password"
-            name="userPw"
-            placeholder="비밀번호"
-            onChange={onChange}
-            value={userPw}
-            className="w-full p-2 mb-4 border rounded focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="text"
-            name="userName"
-            placeholder="이름"
-            onChange={onChange}
-            value={userName}
-            className="w-full p-2 mb-4 border rounded focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="이메일"
-            onChange={onChange}
-            value={email}
-            className="w-full p-2 mb-4 border rounded focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="date"
-            name="birthdate"
-            placeholder="생년월일"
-            onChange={onChange}
-            value={birthdate}
-            className="w-full p-2 mb-4 border rounded focus:outline-none focus:border-blue-500"
-          />
-          <Link href="/">
-            <button className="w-full p-2 bg-red-500 text-white rounded">
-              로그인
-            </button>
-          </Link>
+        <form onSubmit={handleSubmit(onValid)}>
+          <div className="w-full p-2 mb-4 border rounded focus:outline-none focus:border-blue-500">
+            <Input
+              register={register("userId", { required: true })}
+              type="text"
+              name="userId"
+              placeholder="아이디"
+              label="아이디"
+              kind="text"
+              required
+            />
+
+            <Input
+              register={register("password", { required: true })}
+              type="password"
+              name="password"
+              placeholder="비밀번호"
+              label="아이디"
+              kind="text"
+              required
+            />
+            <Input
+              register={register("name", { required: true })}
+              type="text"
+              name="userName"
+              placeholder="이름"
+              label="아이디"
+              kind="text"
+              required
+            />
+            <Input
+              register={register("email", { required: true })}
+              type="email"
+              name="email"
+              placeholder="이메일"
+              label="아이디"
+              kind="text"
+              required
+            />
+            <Input
+              register={register("birth", { required: true })}
+              type="date"
+              name="birth"
+              placeholder="생년월일"
+              label="아이디"
+              kind="text"
+              required
+            />
+          </div>
+
+          <button className="w-full p-2 bg-red-500 text-white rounded">
+            로그인
+          </button>
         </form>
         <div className="text-red-600 text-center mt-5 font-medium text-base">
           <span className="text-gray-600 font-light mr-2">
@@ -92,4 +110,5 @@ export default function Enter() {
       </div>
     </div>
   );
-}
+};
+export default SignUp;

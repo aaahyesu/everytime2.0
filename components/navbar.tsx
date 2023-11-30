@@ -29,24 +29,29 @@ export default function Layout({
       <div
         className={cls(
           !canGoBack ? "justify-right" : "",
-          "justify-right fixed top-0 flex h-[80px] w-full max-w-xl items-center border-b-2 bg-white px-4 text-lg font-[600] text-gray-800"
+          "justify-right fixed top-0 flex h-[72px] w-full max-w-xl items-center border-b-2 bg-white px-4 text-xl font-bold font-['Apple SD Gothic Neo'] leading-tight font-[600] text-gray-800"
         )}
       >
         {head ? (
           <div className="flex justify-between w-full items-center px-2 ">
-            <div className="space-x-4 w-96 h-18  pr-24 justify-start items-start gap-4 inline-flex">
-              <Link
-                href="#"
-                className="text-black text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
-              >
-                모임목록
-              </Link>
-              <Link
-                href="#"
-                className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
-              >
-                채팅
-              </Link>
+            <div className="flex flex-col">
+              <p className="text-red-700 text-xs font-medium font-['Apple SD Gothic Neo'] leading-3">
+                한경국립대학교
+              </p>
+              <div className="space-x-4 w-96 h-18  pr-24 justify-start items-start gap-4 inline-flex">
+                <Link
+                  href="#"
+                  className="text-black text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
+                >
+                  모임목록
+                </Link>
+                <Link
+                  href="#"
+                  className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
+                >
+                  채팅
+                </Link>
+              </div>
             </div>
             <div className="flex space-x-4 ">
               <Link href="#" className="hover:underline">
@@ -54,8 +59,8 @@ export default function Layout({
                   src="/search.png"
                   alt="검색"
                   className="hover:underline"
-                  width={40}
-                  height={40}
+                  width="25px"
+                  height="25px"
                 />
               </Link>
 
@@ -64,8 +69,8 @@ export default function Layout({
                   src="/mypage.png"
                   alt="마이페이지"
                   className="hover:underline"
-                  width={40}
-                  height={40}
+                  width="25px"
+                  height="25px"
                 />
               </Link>
             </div>
@@ -95,7 +100,7 @@ export default function Layout({
             <span
               className={cls(
                 canGoBack
-                  ? "px-2 font-bold  font-['Apple SD Gothic Neo'] text-center text-lg"
+                  ? "px-2 font-bold  font-['Apple SD Gothic Neo'] text-center text-xl"
                   : ""
               )}
             >
