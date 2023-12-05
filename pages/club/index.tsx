@@ -19,8 +19,13 @@ interface ServiceResponse {
   service_count: number;
 }
 
+const fetcher = async (url: string) => {
+  const res = await fetch(url);
+  return res.json();
+};
+
 const Home: NextPage<ServiceResponse> = () => {
-  const { data } = useSWR<ServiceResponse>("/api/services");
+  const { data } = useSWR<ServiceResponse>("/api/services", fetcher);
   console.log(data);
   const [selectedCategoryOption, setSelectedCategoryOption] = useState("주제");
   const [selectedStatusOption, setSelectedStatusOption] = useState("모집 중");
@@ -99,7 +104,7 @@ const Home: NextPage<ServiceResponse> = () => {
           <div className="mt-4 flex">
             <button
               id="dropdown-button"
-              className={`min-w-[115px] ml-auto inline-flex items-center rounded-[10px] border-[1.5px] bg-white px-4 py-2.5 text-center text-sm font-medium text-black hover:bg-white hover:text-black hover:text-center ${
+              className={`min-w-[115px] ml-auto inline-flex items-center rounded-[10px] bg-white px-4 py-2.5 text-center text-sm font-medium text-black hover:bg-white hover:text-black hover:text-center ${
                 isDropdownOpen ? "bg-white" : ""
               }absolute left-4`}
               type="button"
@@ -147,29 +152,37 @@ const Home: NextPage<ServiceResponse> = () => {
             <div className="w-96 h-12 pl-[263px] ">
               <button
                 id="dropdown-button"
-                className={`w-45 ml-auto inline-flex items-center rounded-lg border-[1.5px] bg-white px-5 py-2.5 text-center text-sm font-medium text-black focus:outline-none focus:ring-4 focus:ring-gray-100 ${
+                className={`w-45 ml-auto inline-flex items-center rounded-lg bg-white px-5 py-2.5 text-center text-sm font-medium text-black focus:outline-none focus:ring-4 focus:ring-gray-100 ${
                   isDropdownOpen ? "bg-white" : ""
                 }`}
                 type="button"
                 onClick={() => setIsStatusDropdownOpen(!isStatusDropdownOpen)}
               >
-                {selectedStatusOption}{" "}
+                <span className="mr-2">{selectedStatusOption}</span>
                 <svg
-                  className={`ml-2 h-2.5 w-2.5 ${
-                    isDropdownOpen ? "rotate-180 transform" : ""
-                  }`}
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
                   fill="none"
-                  viewBox="0 0 10 6"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 4 4 4-4"
-                  />
+                  <g
+                    id="mingcute:arrow-down-line"
+                    clip-path="url(#clip0_497_7865)"
+                  >
+                    <g id="Group">
+                      <path
+                        id="Vector"
+                        d="M8.25001 12.9323L5.28751 9.96975C5.21833 9.89812 5.13557 9.84098 5.04407 9.80167C4.95256 9.76237 4.85415 9.74168 4.75456 9.74081C4.65498 9.73995 4.55622 9.75892 4.46405 9.79663C4.37188 9.83434 4.28814 9.89003 4.21772 9.96045C4.1473 10.0309 4.09161 10.1146 4.0539 10.2068C4.01619 10.299 3.99721 10.3977 3.99808 10.4973C3.99894 10.5969 4.01963 10.6953 4.05894 10.7868C4.09824 10.8783 4.15538 10.9611 4.22701 11.0302L8.46976 15.273C8.61041 15.4136 8.80114 15.4926 9.00001 15.4926C9.19889 15.4926 9.38962 15.4136 9.53026 15.273L13.773 11.0302C13.9096 10.8888 13.9852 10.6993 13.9835 10.5027C13.9818 10.3061 13.9029 10.1179 13.7639 9.97889C13.6248 9.83983 13.4367 9.76095 13.2401 9.75924C13.0434 9.75754 12.854 9.83313 12.7125 9.96975L9.75001 12.9323V3C9.75001 2.80109 9.671 2.61032 9.53034 2.46967C9.38969 2.32902 9.19893 2.25 9.00001 2.25C8.8011 2.25 8.61034 2.32902 8.46968 2.46967C8.32903 2.61032 8.25001 2.80109 8.25001 3V12.9323Z"
+                        fill="black"
+                      />
+                    </g>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_497_7865">
+                      <rect width="18" height="18" fill="white" />
+                    </clipPath>
+                  </defs>
                 </svg>
               </button>
               <div
@@ -205,67 +218,11 @@ const Home: NextPage<ServiceResponse> = () => {
             </div>
           </div>
         </form>
-        <div className="flex flex-col space-y-5 py-10">
-          {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
-            <div
-              key={i}
-              className="flex px-4 border-b pb-4 cursor-pointer justify-between"
-            >
-              <div className="flex-row items-center">
-                <div className="flex-row flex items-center space-x-1.5">
-                  <div className="w-10 px-1 pt-1 pb-1.5 rounded border border-red-700 justify-center items-center flex-row">
-                    <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
-                      모집중
-                    </div>
-                  </div>
-                  <div className="w-10 px-1 pt-1 pb-1.5 rounded border border-red-700 flex justify-center items-center">
-                    <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
-                      스포츠
-                    </div>
-                  </div>
-                  <div className="flex item-center space-x-1">
-                    <img src="/num.png" alt="Number" className="w-5 h-5" />
-                    <div className="text-zinc-500 text-sm font-['Apple SD Gothic Neo'] font-normal">
-                      5/12
-                    </div>
-                  </div>
-                </div>
-
-                {/* <div className="relative">
-                  <div
-                    className="absolute top-[75px] left-[300px]"
-                    style={{ display: "flex", alignItems: "center" }}
-                  >
-                    <img src="/num.png" alt="Number" className="w-5 h-5 mr-3" />
-                    <div className="w-5 h-5 flex justify-center items-center">
-                      <div className="text-zinc-500 text-sm font-['Apple SD Gothic Neo'] font-normal">
-                        5/12
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-                <div className="pt-2 flex flex-col">
-                  <h3 className="text-sm font-bold text-gray-900 ">
-                    제목제목제목
-                  </h3>
-                  <span className="font-medium mt-1 text-gray-700">
-                    축구하실 분 구해요 <br /> 12시 학교 운동장
-                  </span>
-                  <span className="text-[10px] text-gray-500">
-                    1시간 전 김도영
-                  </span>
-                </div>
-              </div>
-              <div className="flex space-x-1.5 items-end justify-end">
-                <div className="w-20 h-20 bg-gray-400 rounded-md" />
-              </div>
-            </div>
-          ))}
-
+        <div className="w-20 h-4 pl-3.5 pr-1.5 py-2 justify-end items-center gap-0.5 inline-flex">
           <Link href="/services/upload">
-            <button className="fixed bottom-20 right-5 flex cursor-pointer justify-center rounded-full bg-white px-4 py-4  shadow-sm border border-gray-200">
+            <button className="w-25 h-12 fixed bottom-20 right-[120px] flex items-center justify-center rounded-full text-white bg-red-700 px-4 py-4 shadow-sm border border-red-600">
               <svg
-                className="h-7 w-7"
+                className="h-7 w-7 mr-2"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -273,15 +230,19 @@ const Home: NextPage<ServiceResponse> = () => {
                 aria-hidden="true"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
                   d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                 />
               </svg>
+              <span className="text-sm text-white font-bold font-['Apple SD Gothic Neo']">
+                모임 만들기
+              </span>
             </button>
           </Link>
         </div>
+
         {!data ? (
           <div>Loading...</div>
         ) : (
@@ -290,10 +251,13 @@ const Home: NextPage<ServiceResponse> = () => {
               <List
                 key={service.id}
                 id={service.id}
+                updatedAt={service.updatedAt}
                 title={service.title}
+                userName={service.readerName ?? ""}
                 category={service.category ?? "Sport"}
                 liked={1}
-                room={1}
+                room={service._count.room}
+                content={service.content}
                 link={`/services/${service.id}`}
                 status={service.status ?? "Ing"}
               />

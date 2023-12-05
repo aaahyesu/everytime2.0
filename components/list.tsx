@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { timeFormat } from "@/libs/client/dateFormat";
+import { useEffect, useState } from "react";
 
 interface ListProps {
   id: number;
@@ -6,6 +8,10 @@ interface ListProps {
   liked: number;
   link: string;
   room: number;
+  content: string;
+  userName: string;
+
+  updatedAt: Date;
   status: "Ing" | "End" | "Recent" | "Old" | "Max" | "Min";
   category:
     | "Sport"
@@ -19,13 +25,14 @@ interface ListProps {
 }
 
 export default function List({
-  id,
   title,
-  liked,
   room,
   link,
+  userName,
+  content,
   category,
   status,
+  updatedAt,
 }: ListProps) {
   let categoryText = "";
   let categoryClass = "";
@@ -93,60 +100,55 @@ export default function List({
     bgClass = "bg-blue-200 text-blue-800 ";
   }
 
+  const [formattedTime, setFormattedTime] = useState("");
+
+  useEffect(() => {
+    // Calculate the time difference using the timeFormat function
+    const timeDifference = timeFormat(updatedAt);
+
+    // Set the formatted time
+    setFormattedTime(timeDifference);
+  }, [updatedAt]);
+
   return (
     <Link href={link} className="hover:bg-gray-100">
-      <div className="flex space-x-3">
-        <div className="flex flex-col pt-5">
-          <div className="flex items-center space-x-2">
-            <span className="mb-1 text-[20px] font-bold text-black">
-              {title}
+      <div className="flex px-4 border-b pb-5 pt-5 cursor-pointer justify-between">
+        <div className="flex-row items-center">
+          <div className="flex-row flex items-center justify-between space-x-1.5">
+            <div className="w-10 px-1 pt-1 pb-1.5 rounded border border-red-700 justify-center items-center flex-row ">
+              <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
+                {statusText}
+              </div>
+            </div>
+            <div className="w-10 px-1 pt-1 pb-1.5 rounded border border-red-700 flex justify-center items-center">
+              <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
+                {categoryText}
+              </div>
+            </div>
+            <div className="flex items-center space-x-1.5">
+              <div className="flex items-end justify-end">
+                <img src="/num.png" alt="Number" className="w-5 h-5" />
+              </div>
+              <div className="text-zinc-500 text-sm font-['Apple SD Gothic Neo'] font-normal text-right">
+                {room}/12
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-2 flex flex-col">
+            <h3 className="text-lg font-bold text-gray-900 ">{title}</h3>
+            <span className="text-sm font-medium mt-1 text-gray-700">
+              {content}
+            </span>
+            <span className="pt-1 text-xs text-gray-500">
+              {userName} {formattedTime}
             </span>
           </div>
         </div>
-      </div>
-      <div className="flex items-center space-x-2">
-        <span
-          className={`mr-2 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${bgClass}`}
-        >
-          <span className={`mr-1 h-2 w-2 rounded-full ${categoryClass}`}></span>
-          {categoryText}
-        </span>
-        <div className="text-5 flex flex-grow justify-end space-x-0.5  text-gray-600">
-          <svg
-            className="h-7 w-7"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-            ></path>
-          </svg>
-          <span>{liked}</span>
-        </div>
-        <div className="text-5 flex items-center space-x-0.5  text-gray-600">
-          <svg
-            className="h-7 w-7"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-            ></path>
-          </svg>
-          <span>{room}</span>
+        <div className="flex space-x-1.5 items-end justify-end">
+          <div className="w-20 h-20 bg-gray-400 rounded-md" />
         </div>
       </div>
-      <div className="border-b border-gray-300 pb-4"></div>
     </Link>
   );
 }

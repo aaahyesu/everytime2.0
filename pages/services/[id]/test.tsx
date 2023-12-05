@@ -81,17 +81,7 @@ const ServiceDetail: NextPage<ServiceResponse> = ({ service }) => {
   return (
     <Layout hasTabBar canGoBack title="모임 개설">
       <div className="mt-10">
-        <div className="w-30 px-3 pt-2 pb-1.5 left-2 top-[90px] absolute rounded border border-red-700 justify-center items-center inline-flex">
-          <div className="w-11 h-3 text-center text-red-700 text-sm font-bold font-['Apple SD Gothic Neo']">
-            모집중
-          </div>
-        </div>
-        <div className="w-16 px-3 pt-2 pb-1.5 left-[85px] top-[90px] absolute rounded border border-red-700 justify-center items-center inline-flex">
-          <div className="w-11 h-3 text-center text-red-700 text-sm font-bold font-['Apple SD Gothic Neo']">
-            스포츠
-          </div>
-        </div>
-
+       
         <div
           className="flex flex-col space-x-3  shadow-sm rounded-lg border border-zinc-300 px-3 focus:border-black focus:outline-none py-3"
           style={{ width: "2400px", height: "65px" }}

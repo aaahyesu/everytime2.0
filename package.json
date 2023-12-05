@@ -15,7 +15,7 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.2",
     "iron-session": "^6.3.1",
-    "next": "14.0.2",
+    "next": "13.2.4",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
