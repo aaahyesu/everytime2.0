@@ -297,7 +297,7 @@ const ChatDetail: NextPage = () => {
   };
 
   return (
-    <Layout canGoBack hasTabBar title="채팅">
+    <Layout canGoBack hasTabBar exit={onExitRoom} title={data.room.realName}>
       <article className="mb-10 min-h-[78vh] space-y-4 rounded-sm bg-white p-4 pt-20">
         {loadChatsLoading && (
           <h3 className="rounded-md bg-red-600 p-2 text-center text-lg text-white">
@@ -354,60 +354,63 @@ const ChatDetail: NextPage = () => {
                 aria-hidden="true"
               >
                 {/* Modal body */}
-                <div className="space-y-6 p-6">
-                  <nav className="flex w-full max-w-xl justify-between bg-white px-4 pb-5 pt-3 text-center text-xs text-gray-800">
+                <div className=" p-6 border px-20 justify-between">
+                  <nav className="flex justify-between items-center bg-white text-center text-xs text-gray-800">
                     <Link href={"#"}>
                       <span className="flex flex-col items-center space-y-2">
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
+                          width="52"
+                          height="52"
+                          viewBox="0 0 52 52"
                           fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="1.5"
-                          stroke="currentColor"
-                          className="h-6 w-6"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            stroke-linecap="round"
-                            d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
-                          />
+                          <g id="material-symbols:image-outline">
+                            <path
+                              id="Vector 84"
+                              d="M42 14V38C42 40.2091 40.2091 42 38 42H14C11.7909 42 10 40.2091 10 38V14C10 11.7909 11.7909 10 14 10H38C40.2091 10 42 11.7909 42 14Z"
+                              stroke="black"
+                              stroke-width="2"
+                            />
+                            <path
+                              id="Vector 83"
+                              d="M20.084 28.124L16.0182 34.2226C15.7967 34.5549 16.0349 35 16.4343 35H35.5221C35.93 35 36.1663 34.5379 35.9275 34.2073L30.4023 26.557C30.2036 26.2819 29.7944 26.2804 29.5937 26.554L24.9227 32.9236C24.7174 33.2036 24.2961 33.1942 24.1035 32.9052L20.916 28.124C20.7181 27.8272 20.2819 27.8272 20.084 28.124Z"
+                              fill="#C62917"
+                            />
+                          </g>
                         </svg>
+                        <span className="text-center text-xs font-['Apple_SD_Gothic_Neo'] font-medium leading-[12px] ">
+                          사진
+                        </span>
                       </span>
                     </Link>
-
-                    <span className="flex flex-col items-center space-y-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        className="h-6 w-6"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59"
-                        />
-                      </svg>
-                    </span>
-
                     <Link href="#">
-                      <button className="flex flex-col items-center space-y-2">
+                      <span className="flex flex-col items-center space-y-2">
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
+                          width="44"
+                          height="40"
+                          viewBox="0 0 44 40"
                           fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="1.5"
-                          stroke="currentColor"
-                          className="h-6 w-6"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
-                          />
+                          <g id="octicon:video-24">
+                            <path
+                              id="Vector 85"
+                              d="M42 9V31C42 33.2091 40.2091 35 38 35H6C3.79086 35 2 33.2091 2 31V9C2 6.79086 3.79086 5 6 5H38C40.2091 5 42 6.79086 42 9Z"
+                              stroke="black"
+                              stroke-width="2"
+                            />
+                            <path
+                              id="Vector"
+                              d="M17 25.9734V14.0268C17.0002 13.8773 17.0407 13.7306 17.1171 13.6022C17.1935 13.4737 17.3031 13.3682 17.4343 13.2966C17.5655 13.225 17.7136 13.19 17.8629 13.1954C18.0123 13.2007 18.1575 13.2461 18.2833 13.3268L27.5767 19.2984C27.6943 19.3738 27.7912 19.4776 27.8582 19.6002C27.9253 19.7228 27.9604 19.8603 27.9604 20.0001C27.9604 20.1399 27.9253 20.2774 27.8582 20.4C27.7912 20.5226 27.6943 20.6264 27.5767 20.7018L18.2833 26.6751C18.1575 26.7558 18.0123 26.8012 17.8629 26.8065C17.7136 26.8118 17.5655 26.7769 17.4343 26.7053C17.3031 26.6337 17.1935 26.5282 17.1171 26.3997C17.0407 26.2712 17.0002 26.1246 17 25.9751V25.9734Z"
+                              fill="#C62917"
+                            />
+                          </g>
                         </svg>
-                      </button>
+                        <span className="text-center text-xs font-['Apple_SD_Gothic_Neo'] font-medium leading-[12px] ">
+                          비디오
+                        </span>
+                      </span>
                     </Link>
                   </nav>
                 </div>

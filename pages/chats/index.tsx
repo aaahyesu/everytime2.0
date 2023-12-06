@@ -37,20 +37,20 @@ const Chats: NextPage = () => {
   if (!data) return <Spinner kinds="page" />;
 
   return (
-    <Layout hasTabBar title="채팅방 💬">
-      <article className="divide-y-[1px] pt-12">
+    <Layout hasTabBar head2>
+      <article className="divide-y-[1px] pt-16 px-5">
         {data.rooms.length > 0 ? (
           data.rooms.map((room, index) => (
             <Link key={room.id} href={`/chats/${room.id}`}>
-              <p className="flex cursor-pointer items-center space-x-3 rounded-md px-4 py-3 transition-colors hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2">
+              <p className="flex rounded-lg border border-zinc-300 cursor-pointer items-center space-x-3 px-4 py-3 transition-colors hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2">
                 <div
                   className={cls(
-                    "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full  bg-black", // 동그란 원 스타일
+                    "flex h-10 w-10 flex-shrink-0   rounded-full  bg-black", // 동그란 원 스타일
                     "mr-1" // 오른쪽 여백
                   )}
                 >
                   <img
-                    src="/superman_bg_white.png"
+                    src=""
                     alt="Avatar"
                     className="h-full w-full rounded-full shadow-md"
                   />
