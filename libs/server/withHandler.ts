@@ -17,7 +17,10 @@ type method = "GET" | "POST" | "DELETE" | "PUT" | "PATCH";
 
 interface ConfigType {
   methods: method[];
-  handler: (req: NextApiRequest, res: NextApiResponse) => Promise<any>;
+  handler: (
+    req: NextApiRequest,
+    res: NextApiResponse & NextApiResponseServerIO
+  ) => Promise<any>;
   isPrivate?: boolean;
 }
 

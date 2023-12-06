@@ -10,7 +10,7 @@ interface ListProps {
   room: number;
   content: string;
   userName: string;
-
+  maxNum: number;
   updatedAt: Date;
   status: "Ing" | "End" | "Recent" | "Old" | "Max" | "Min";
   category:
@@ -33,6 +33,7 @@ export default function List({
   category,
   status,
   updatedAt,
+  maxNum,
 }: ListProps) {
   let categoryText = "";
   let categoryClass = "";
@@ -120,7 +121,7 @@ export default function List({
                 {statusText}
               </div>
             </div>
-            <div className="w-10 px-1 pt-1 pb-1.5 rounded border border-red-700 flex justify-center items-center">
+            <div className="w-13 px-1 pt-1 pb-1.5 rounded border border-red-700 flex justify-center items-center">
               <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
                 {categoryText}
               </div>
@@ -130,7 +131,7 @@ export default function List({
                 <img src="/num.png" alt="Number" className="w-5 h-5" />
               </div>
               <div className="text-zinc-500 text-sm font-['Apple SD Gothic Neo'] font-normal text-right">
-                {room}/12
+                {room}/{maxNum}
               </div>
             </div>
           </div>

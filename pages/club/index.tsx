@@ -222,20 +222,22 @@ const Home: NextPage<ServiceResponse> = () => {
           <Link href="/services/upload">
             <button className="w-25 h-12 fixed bottom-20 right-[120px] flex items-center justify-center rounded-full text-white bg-red-700 px-4 py-4 shadow-sm border border-red-600">
               <svg
-                className="h-7 w-7 mr-2"
-                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
                 fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  id="Vector"
+                  d="M4.86593 12.466C4.52461 12.8076 4.06167 12.9996 3.57884 13H1V10.4373C1 9.95466 1.19196 9.49133 1.53323 9.14999M4.86593 12.466L1.53323 9.14999M4.86593 12.466L11.514 5.81398M1.53323 9.14999L8.18795 2.48664L9.13844 1.53464C9.30757 1.36521 9.50844 1.23079 9.72955 1.13905C9.95066 1.04731 10.1877 1.00006 10.4271 1C10.6664 0.999938 10.9035 1.04707 11.1246 1.13869C11.3458 1.23031 11.5467 1.36463 11.7159 1.53397L12.4665 2.28531C12.8081 2.627 13 3.09042 13 3.57364C13 4.05686 12.8081 4.52029 12.4665 4.86198L11.514 5.81398M11.514 5.81398L8.18729 2.48664"
+                  stroke="white"
+                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                 />
               </svg>
+              <div className="mr-2 flex" />
               <span className="text-sm text-white font-bold font-['Apple SD Gothic Neo']">
                 모임 만들기
               </span>
@@ -257,6 +259,7 @@ const Home: NextPage<ServiceResponse> = () => {
                 category={service.category ?? "Sport"}
                 liked={1}
                 room={service._count.room}
+                maxNum={service.maxNum}
                 content={service.content}
                 link={`/services/${service.id}`}
                 status={service.status ?? "Ing"}

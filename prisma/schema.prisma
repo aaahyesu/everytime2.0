@@ -15,9 +15,9 @@ model User{
   id                Int            @id @default(autoincrement())
   phone             Int?           @unique
   userId            String?        @unique
-  password          String
+  password          String?
   email             String?        @unique
-  birth             String
+  birth             String?
   name              String        @unique
   nickName           String?        @unique
   school            String?

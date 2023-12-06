@@ -7,6 +7,7 @@ import { Service } from "@prisma/client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import TextArea from "@/components/textarea";
+import Link from "next/link";
 
 interface UploadServiceForm {
   title: String;
@@ -114,14 +115,15 @@ const Upload: NextPage = () => {
           placeholder="모임설명"
           name="content"
         />
-
-        <div className="flex justify-center">
-          <div className="flex-col-2 flex">
-            <button className=" mt-5 w-[320px] flex-1  border-transparent bg-white px-10 py-3 text-lg font-bold text-black rounded-[10px] border border-zinc-300 justify-center items-center inline-flex">
-              모임 만들기
-            </button>
+        <Link href="/club">
+          <div className="flex justify-center">
+            <div className="flex-col-2 flex">
+              <button className=" mt-5 w-[320px] flex-1  border-transparent bg-white px-10 py-3 text-lg font-bold text-black rounded-[10px] border border-zinc-300 justify-center items-center inline-flex">
+                모임 만들기
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
       </form>
     </Layout>
   );

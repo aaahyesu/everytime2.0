@@ -32,44 +32,13 @@ async function handler(
     if (method === "POST") {
       const {
         session: { user },
-        body: { email, name, avatarId },
+        body: { name },
       } = req;
       const checkUser = await client.user.findUnique({
         where: {
           id: user?.id,
         },
       });
-      if (email && email !== checkUser?.email) {
-        const Exit = Boolean(
-          await client.user.findUnique({
-            where: {
-              email,
-            },
-            select: {
-              id: true,
-            },
-          })
-        );
-        if (Exit) {
-          return res.json({
-            ok: false,
-            error: "email alreay",
-            message: "email alreay",
-          });
-        }
-        await client.user.update({
-          where: {
-            id: user?.id,
-          },
-          data: {
-            email,
-          },
-        });
-        res.json({
-          ok: true,
-          message: "email update",
-        });
-      }
 
       if (name && name !== checkUser?.name) {
         const Exit = Boolean(

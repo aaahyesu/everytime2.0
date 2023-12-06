@@ -8,10 +8,10 @@ import { useRouter } from "next/router";
 import useSWR, { useSWRConfig } from "swr";
 import { ApiResponse, SimpleUser } from "@/types";
 import { useCallback, useEffect } from "react";
-import useMe from "@/libs/client/useMe";
 import { toast } from "react-toastify";
 import Button from "@/components/Button";
 import { timeFormat } from "@/libs/client/dateFormat";
+import useUser from "@/libs/client/useUser";
 
 interface ConnectUser extends Service {
   user: SimpleUser;
@@ -41,14 +41,14 @@ const fetcher = async (url: string) => {
 
 const ServiceDetail: NextPage<ServiceResponse> = ({ service }) => {
   const router = useRouter();
-  const { me } = useMe();
+  const { user } = useUser();
 
   const { mutate } = useSWRConfig();
   const { data, mutate: boundMutate } = useSWR<ListDetail>(
     router.query.id ? `/api/services/${router.query.id}` : null,
     fetcher
   );
-  console.log(data);
+
   const [togglelike] = useMutation(`/api/services/${router.query.id}/like`);
   const onLikeClick = () => {
     if (!data) return;
@@ -59,25 +59,22 @@ const ServiceDetail: NextPage<ServiceResponse> = ({ service }) => {
   const [createRoom, { data: createRoomResponse, loading: createRoomLoading }] =
     useMutation<RoomResponse>(`/api/chats/room`);
   // 채팅방 생성
+  console.log(data);
   const onCreateRoom = useCallback(() => {
-    if (data?.service?.userId === me?.id)
+    if (data?.service?.userId === user?.id)
       return toast.error("본인 요청서에는 채팅을 할 수 없습니다.");
     if (createRoomLoading)
       return toast.warning("채팅방을 생성중입니다.\n잠시 기다려주세요!");
-    if (data?.service?.status?.includes("Complete"))
+    if (data?.service?.status?.includes("End"))
       return toast.warning(
         "이미 완료된 서비스이면 사용자와 대화할 수 없습니다."
-      );
-    if (data?.service?.status?.includes("Incomplete"))
-      return toast.warning(
-        "이미 미완료된 서비스이면 사용자와 대화할 수 없습니다."
       );
     createRoom({
       ownerId: data?.service?.userId,
       title: data?.service?.title,
       serviceId: data?.service?.id,
     });
-  }, [createRoom, service, me, createRoomLoading]);
+  }, [createRoom, service, user, createRoomLoading]);
 
   // 채팅방 생성 시 채팅방으로 이동
   useEffect(() => {
@@ -86,7 +83,6 @@ const ServiceDetail: NextPage<ServiceResponse> = ({ service }) => {
     toast.success("채팅방으로 이동합니다.");
     router.push(`/chats/${createRoomResponse.roomId}`);
   }, [router, createRoomResponse]);
-  console.log(data?.service?.user);
 
   const statusMap: Record<string, string> = {
     Ing: "모집 중",
@@ -126,7 +122,7 @@ const ServiceDetail: NextPage<ServiceResponse> = ({ service }) => {
             {translatedStatus}
           </div>
         </div>
-        <div className="w-10 px-1 pt-1 pb-1.5 left-[85px] top-[100px] absolute rounded border border-red-700 flex justify-center items-center">
+        <div className="w-13 px-1 pt-1 pb-1.5 left-[83px] top-[100px] absolute rounded border border-red-700 flex justify-center items-center">
           <div className="text-center text-red-700 text-[10px] font-bold font-['Apple SD Gothic Neo']">
             {translatedCategory}
           </div>
