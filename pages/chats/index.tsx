@@ -42,7 +42,7 @@ const Chats: NextPage = () => {
         {data.rooms.length > 0 ? (
           data.rooms.map((room, index) => (
             <Link key={room.id} href={`/chats/${room.id}`}>
-              <p className="flex rounded-lg border border-zinc-300 cursor-pointer items-center space-x-3 px-4 py-3 transition-colors hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2">
+              <p className="flex rounded-lg border border-zinc-300 cursor-pointer items-center space-x-3 px-4 py-3 transition-colors hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 mt-2">
                 <div
                   className={cls(
                     "flex h-10 w-10 flex-shrink-0   rounded-full  bg-black", // 동그란 원 스타일
@@ -50,7 +50,7 @@ const Chats: NextPage = () => {
                   )}
                 >
                   <img
-                    src=""
+                    src="/profile2.png"
                     alt="Avatar"
                     className="h-full w-full rounded-full shadow-md"
                   />

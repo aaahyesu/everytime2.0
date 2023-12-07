@@ -40,7 +40,7 @@ const Message = ({ message, updatedAt, user, $reversed }: MessageProps) => {
           )}
         >
           <img
-            src="#"
+            src="/profile1.png"
             alt="Avatar"
             className="h-full w-full rounded-full shadow-md"
           />

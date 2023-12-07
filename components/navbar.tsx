@@ -10,6 +10,7 @@ interface LayoutProps {
   hasTabBar?: boolean;
   head?: boolean;
   head2?: boolean;
+  head3?: boolean;
   exit?: () => Promise<void>;
   children: React.ReactNode;
 }
@@ -21,6 +22,7 @@ export default function Layout({
   children,
   head,
   head2,
+  head3,
   exit,
 }: LayoutProps) {
   const router = useRouter();
@@ -108,7 +110,24 @@ export default function Layout({
             </div>
           </div>
         ) : null}
-        {head2 ? (
+        {head3 ? (
+          <div className="flex justify-between w-full items-center px-2 ">
+            <div className="flex flex-col">
+              <p className="text-red-700 text-xs font-medium font-['Apple SD Gothic Neo'] leading-3">
+                에브리타임
+              </p>
+              <div className="flex w-96 h-18 justify-start items-center gap-4 mt-1">
+                한경국립대학교
+                <div className="flex ml-[200px]">
+                  <Link href="services/search" className="text-black relative ">
+                    <img src="/alarm.png" alt="alarm" className="w-7 h-7" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+        {head ? (
           <div className="flex justify-between w-full items-center px-2 ">
             <div className="flex flex-col">
               <p className="text-red-700 text-xs font-medium font-['Apple SD Gothic Neo'] leading-3">
@@ -117,18 +136,18 @@ export default function Layout({
               <div className="flex w-96 h-18 justify-start items-center gap-4">
                 <Link
                   href="/club"
-                  className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
+                  className="text-black text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
                 >
                   모임목록
                 </Link>
                 <Link
                   href="/chats"
-                  className="text-black text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal ml-2"
+                  className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal ml-2"
                 >
-                  내 모임
+                  채팅
                 </Link>
                 <div className="flex ml-[100px]">
-                  <Link href="services/search" className="text-black relative ">
+                  <Link href="services/search" className="text-black relative">
                     <svg
                       width="24"
                       height="24"
@@ -145,7 +164,7 @@ export default function Layout({
                       </g>
                     </svg>
                   </Link>
-                  <Link href="/mypage" className="relative ml-4 ">
+                  <Link href="/mypage" className="relative ml-6 ">
                     <svg
                       width="24"
                       height="24"

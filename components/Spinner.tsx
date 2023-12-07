@@ -16,7 +16,7 @@ const Spinner = ({ kinds }: Props) => {
       case "page":
         return (
           <aside className="animate-fade-in fixed left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-black/60">
-            <img src="/everytime.png" />
+            <img src="/loading.png" />
           </aside>
         );
 
