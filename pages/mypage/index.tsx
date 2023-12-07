@@ -3,13 +3,13 @@ import logo from "../public/logo.png";
 import Link from "next/link";
 import Layout from "@/components/navbar";
 
+
 export default function Profile() {
     const [name, setName] = useState("김에타");
     const [grade, setgrade] = useState("2");
     const [department, setDepartment] = useState("경영학과");
     const [credit, setCredit] = useState("F");
     
-
     return (
         <Layout hasTabBar canGoBack title="프로필">
             <div className="bg-white mt-10 w-full flex flex-col">

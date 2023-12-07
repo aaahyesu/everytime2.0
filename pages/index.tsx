@@ -11,53 +11,53 @@ const Home: NextPage = () => {
           <div className="inline-flex">
             <div className="w-80 h-48 border-2 border-grey-400 rounded-lg ml-4 mr-4">
               <div className="flex flex-col">
-                <div className="flex flex-row ml-3 mt-3">
+                <div className="flex flex-row ml-4 mt-4">
                   <img className="" src="table.png"></img>
                   <div>
                     <div className="w-30 ml-2 text-xl font-bold">말하기와 글쓰기</div>
                     <div className="w-30 ml-2 text-xs text-red-600">1시간 19분 후 수업 끝</div>
                   </div>
                 </div>
-                <div className="font-bold ml-16 mt-6">말하기와 글쓰기 교제 <br /> 레포트 제출하기 <br /> 글쓰기 과제 제출하기</div>
+                <div className="font-bold-l ml-16 mt-6">말하기와 글쓰기 교제 <br /> 레포트 제출하기 <br /> 글쓰기 과제 제출하기</div>
               </div>
             </div>
 
             <div className="w-80 h-48 border-2 border-grey-400 rounded-lg ml-4 mr-4">
               <div className="flex flex-col">
-                <div className="flex flex-row ml-3 mt-3">
+                <div className="flex flex-row ml-4 mt-4">
                   <img className="" src="table.png"></img>
                   <div>
                     <div className="w-30 ml-2 text-xl font-bold">문제해결프로제트1</div>
                     <div className="w-30 ml-2 text-xs text-red-600">3시간 49분 후 수업 끝</div>
                   </div>
                 </div>
-                <div className="font-bold ml-16 mt-6"> 레포트 제출하기 <br /> define 단계 정리</div>
+                <div className="font-bold-l ml-16 mt-6"> 레포트 제출하기 <br /> define 단계 정리</div>
               </div>
             </div>
 
             <div className="w-80 h-48 border-2 border-grey-400 rounded-lg ml-4 mr-4">
               <div className="flex flex-col">
-                <div className="flex flex-row ml-3 mt-3">
+                <div className="flex flex-row ml-4 mt-4">
                   <img className="" src="table.png"></img>
                   <div>
                     <div className="w-30 ml-2 text-xl font-bold">웹프로그래밍</div>
                     <div className="w-30 ml-2 text-xs text-red-600">2시간 19분 후 수업 끝</div>
                   </div>
                 </div>
-                <div className="font-bold ml-16 mt-6">웹프로그래밍 교제 <br /> MashUp 코드 제출하기 <br />MashUp 설명레포트 제출하기</div>
+                <div className="font-bold-l ml-16 mt-6">웹프로그래밍 교제 <br /> MashUp 코드 제출하기 <br />MashUp 설명레포트 제출하기</div>
               </div>
             </div>
 
             <div className="w-80 h-48 border-2 border-grey-400 rounded-lg ml-4 mr-4">
               <div className="flex flex-col">
-                <div className="flex flex-row ml-3 mt-3">
+                <div className="flex flex-row ml-4 mt-4">
                   <img className="" src="table.png"></img>
                   <div>
                     <div className="w-30 ml-2 text-xl font-bold">창의와 소통</div>
                     <div className="w-30 ml-2 text-xs text-red-600">4시간 49분 후 수업 끝</div>
                   </div>
                 </div>
-                <div className="font-bold ml-16 mt-6">레포트 제출하기 <br /> 교제 요약본 제출하기</div>
+                <div className="font-bold-l ml-16 mt-6">레포트 제출하기 <br /> 교제 요약본 제출하기</div>
               </div>
             </div>
           </div>
@@ -152,4 +152,7 @@ const Home: NextPage = () => {
     </Layout>
   );
 };
+
+
 export default Home;
+
