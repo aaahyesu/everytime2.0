@@ -162,11 +162,31 @@ const Home: NextPage = () => {
         <div className="w-11/12 h-44 border-2 rounded-lg border-grey ml-4 mb-5 flex-col">
           <div className="w-full justify-between flex flex-row">
             <div className="w-26 h-5 text-xl mt-4 ml-4 font-bold">
-              최근 모임
+              즐겨찾는 게시판
             </div>
             <div className="text-red-600 mr-4 mt-5 w-18 h-5 text-sm">
               더보기 &gt;
             </div>
+          </div>
+          <div className="w-full justify-between flex flex-row">
+            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">스포츠</div>
+            <div className="h-5 text-sm mt-2 text-gray-500 mr-6">즐겁게 공찰 사람람</div>
+            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">4분 전</div>
+          </div>
+          <div className="w-full justify-between flex flex-row">
+            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">밥친구</div>
+            <div className="h-5 text-sm mt-2 text-gray-500 ml-4">오늘 학식같이 먹을 사람</div>
+            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">36분 전</div>
+          </div>
+          <div className="w-full justify-between flex flex-row">
+            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">봉사활동</div>
+            <div className="h-5 text-sm mt-2 text-gray-500 ml-4">해외봉사 같이 신청할 사람</div>
+            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">23분 전</div>
+          </div>
+          <div className="w-full justify-between flex flex-row">
+            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">여가/여행</div>
+            <div className="h-5 text-sm mt-2 text-gray-500">주말에 설경 찍으러 갈 분</div>
+            <div className="h-5 text-sm mt-2 mr-2 text-gray-500">1시간 전</div>
           </div>
         </div>
       </div>
