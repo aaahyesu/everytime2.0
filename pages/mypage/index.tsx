@@ -36,7 +36,7 @@ export default function Profile() {
                         <div className="ml-10 flex h-4 w-1/2">
                             <p className="" style = {{ fontSize: '16px'}}>참여한 모임</p>
                         </div>
-                        <Link href="/profile/attended">
+                        <Link href="/mypage/attended">
                             <div className="flex justify-self-end">
                                 <div className="bg-white text-gray-500" style = {{ fontSize: '16px'}}>전체 보기</div>
                             </div>
@@ -46,7 +46,7 @@ export default function Profile() {
                         <div className="ml-10 flex h-4 w-1/2">
                             <p className="" style = {{ fontSize: '16px'}}>찜한 모임</p>
                         </div>
-                        <Link href="/profile/liked">
+                        <Link href="/mypage/liked">
                             <div className="flex justify-self-end">
                                 <div className="bg-white text-gray-500" style = {{ fontSize: '16px'}}>전체 보기</div>
                             </div>
@@ -56,7 +56,7 @@ export default function Profile() {
                         <div className="ml-10 flex h-4 w-1/2 justify-between">
                             <p className="" style = {{ fontSize: '16px'}}>최근 본 모임</p>
                         </div>
-                        <Link href="/profile/watched">
+                        <Link href="/mypage/watched">
                             <div className="flex justify-self-end">
                                 <div className="bg-white text-gray-500" style = {{ fontSize: '16px'}}>전체 보기</div>
                             </div>
