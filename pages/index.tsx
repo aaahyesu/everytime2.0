@@ -3,13 +3,31 @@ import { PrismaClient } from "@prisma/client";
 import Layout from "@/components/navbar";
 import Link from "next/link";
 
-
 const Home: NextPage = () => {
   return (
     <Layout hasTabBar title="한경대학교">
       <div className="bg-white flex-col">
         <div className="overflow-x-auto mt-20 mb-4">
           <div className="inline-flex">
+            <div className="w-80 h-48 border-2 border-black ml-4 mr-4">
+              <div className="flex flex-col">
+                <div className="flex flex-row ml-3 mt-3">
+                  <img className="" src="table.png"></img>
+                  <div>
+                    <div className="w-30 ml-2 text-xl font-bold">
+                      말하기와 글쓰기
+                    </div>
+                    <div className="w-30 ml-2 text-xs text-red-600">
+                      1시간 19분 후 수업 끝
+                    </div>
+                  </div>
+                </div>
+                <div className="font-bold ml-16 mt-6">
+                  말하기와 글쓰기 교제 <br /> 레포트 제출하기 <br /> 글쓰기 과제
+                  제출하기
+                </div>
+              </div>
+            </div>
 
             <div className="w-80 h-48 border-2 border-black ml-4 mr-4">
               <div className="flex flex-col">
@@ -29,11 +47,11 @@ const Home: NextPage = () => {
                 <div className="flex flex-row ml-3 mt-3">
                   <img className="" src="table.png"></img>
                   <div>
-                    <div className="w-30 ml-2 text-xl font-bold">웹프로그래밍</div>
-                    <div className="w-30 ml-2 text-xs text-red-600">3시간 19분 후 수업 끝</div>
+                    <div className="w-30 ml-2 text-xl font-bold">말하기와 글쓰기</div>
+                    <div className="w-30 ml-2 text-xs text-red-600">1시간 19분 후 수업 끝</div>
                   </div>
                 </div>
-                <div className="font-bold ml-16 mt-6">웹프로그래밍 교제 <br /> Mashup 코드 제출하기 <br /> Mashup 레포트 제출하기</div>
+                <div className="font-bold ml-16 mt-6">말하기와 글쓰기 교제 <br /> 레포트 제출하기 <br /> 글쓰기 과제 제출하기</div>
               </div>
             </div>
 
@@ -42,27 +60,13 @@ const Home: NextPage = () => {
                 <div className="flex flex-row ml-3 mt-3">
                   <img className="" src="table.png"></img>
                   <div>
-                    <div className="w-30 ml-2 text-xl font-bold">인성교육및상담</div>
-                    <div className="w-30 ml-2 text-xs text-red-600">5시간 19분 후 수업 끝</div>
+                    <div className="w-30 ml-2 text-xl font-bold">말하기와 글쓰기</div>
+                    <div className="w-30 ml-2 text-xs text-red-600">1시간 19분 후 수업 끝</div>
                   </div>
                 </div>
-                <div className="font-bold ml-16 mt-6"> 대면/비대면 상담 신청 <br /> 레포트 제출하기</div>
+                <div className="font-bold ml-16 mt-6">말하기와 글쓰기 교제 <br /> 레포트 제출하기 <br /> 글쓰기 과제 제출하기</div>
               </div>
             </div>
-
-            <div className="w-80 h-48 border-2 border-black ml-4 mr-4">
-              <div className="flex flex-col">
-                <div className="flex flex-row ml-3 mt-3">
-                  <img className="" src="table.png"></img>
-                  <div>
-                    <div className="w-30 ml-2 text-xl font-bold">동양역사와 문화</div>
-                    <div className="w-30 ml-2 text-xs text-red-600">8시간 19분 후 수업 끝</div>
-                  </div>
-                </div>
-                <div className="font-bold ml-16 mt-6">레포트 제출하기</div>
-              </div>
-            </div>
-            
           </div>
         </div>
         <div className="overflow-x-scroll mt-4 mb-2 h-24">
@@ -111,10 +115,14 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className ="w-11/12 h-44 border-2 border-grey ml-4 mb-5 flex-col">
+        <div className="w-11/12 h-44 border-2 border-grey ml-4 mb-5 flex-col">
           <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-xl mt-4 ml-4 font-bold">즐겨찾는 게시판</div>
-            <div className="text-red-600 mr-4 mt-5 w-18 h-5 text-sm">더보기 &gt;</div>
+            <div className="w-26 h-5 text-xl mt-4 ml-4 font-bold">
+              즐겨찾는 게시판
+            </div>
+            <div className="text-red-600 mr-4 mt-5 w-18 h-5 text-sm">
+              더보기 &gt;
+            </div>
           </div>
           <div className="w-full justify-between flex flex-row">
             <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">자유게시판</div>
@@ -137,10 +145,14 @@ const Home: NextPage = () => {
             <div className="h-5 text-sm mt-2 mr-2 text-gray-500">2시간 전</div>
           </div>
         </div>
-        <div className ="w-11/12 h-44 border-2 border-grey ml-4 mb-5 flex-col">
+        <div className="w-11/12 h-44 border-2 border-grey ml-4 mb-5 flex-col">
           <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-xl mt-4 ml-4 font-bold">최근 모임</div>
-            <div className="text-red-600 mr-4 mt-5 w-18 h-5 text-sm">더보기 &gt;</div>
+            <div className="w-26 h-5 text-xl mt-4 ml-4 font-bold">
+              최근 모임
+            </div>
+            <div className="text-red-600 mr-4 mt-5 w-18 h-5 text-sm">
+              더보기 &gt;
+            </div>
           </div>
         </div>
       </div>

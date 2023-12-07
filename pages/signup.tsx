@@ -56,40 +56,44 @@ const SignUp: NextPage = () => {
               kind="text"
               required
             />
+            <div className="mb-2" />
 
             <Input
               register={register("password", { required: true })}
               type="password"
               name="password"
               placeholder="비밀번호"
-              label="아이디"
+              label="비밀번호"
               kind="text"
               required
             />
+            <div className="mb-2" />
             <Input
               register={register("name", { required: true })}
               type="text"
               name="userName"
               placeholder="이름"
-              label="아이디"
+              label="이름"
               kind="text"
               required
             />
+            <div className="mb-2" />
             <Input
               register={register("email", { required: true })}
               type="email"
               name="email"
               placeholder="이메일"
-              label="아이디"
+              label="이메일"
               kind="text"
               required
             />
+            <div className="mb-2" />
             <Input
               register={register("birth", { required: true })}
               type="date"
               name="birth"
               placeholder="생년월일"
-              label="아이디"
+              label="생년월일"
               kind="text"
               required
             />

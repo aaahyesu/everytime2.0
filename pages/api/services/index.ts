@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import withHandler, { ResponseType } from "@/libs/server/withHandler";
 import client from "@/libs/server/client";
 import { withApiSession } from "@/libs/server/withSession";
+
 async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseType>
@@ -10,6 +11,12 @@ async function handler(
     body: { title, content, maxNum, category },
     session: { user },
   } = req;
+
+  const userID = await client.user.findUnique({
+    where: {
+      id: user?.id,
+    },
+  });
 
   if (req.method === "GET") {
     const services = await client.service.findMany({
@@ -37,6 +44,7 @@ async function handler(
         content,
         maxNum: +maxNum,
         category,
+        readerName: userID?.name ?? "",
         status: "Ing",
         user: {
           connect: {

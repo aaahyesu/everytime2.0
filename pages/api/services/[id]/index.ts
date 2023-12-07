@@ -24,6 +24,11 @@ async function handler(
       id: +id,
     },
     include: {
+      _count: {
+        select: {
+          room: true,
+        },
+      },
       user: {
         select: {
           id: true,
@@ -44,6 +49,7 @@ async function handler(
       },
     })
   );
+
   return res.json({
     ok: true,
     service,
