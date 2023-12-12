@@ -20,7 +20,7 @@ export default function Layouts({ navbar, children }: LayoutsProps) {
       <div className={cls("pt-6", navbar ? "pb-24" : "")}>{children}</div>
       {navbar ? (
         <nav className="fixed bottom-0 flex w-full max-w-xl justify-between border-t bg-white px-4 pb-5 pt-3 text-center text-xs text-gray-800">
-          <Link href="/">
+          <Link href="/main">
             <span
               className={cls(
                 "flex flex-col items-center space-y-2",
