@@ -5,8 +5,6 @@ import { SWRConfig } from "swr";
 import { ToastContainer } from "react-toastify";
 import navbar from "@/components/navbar";
 
-import Layout from "@/components/navbar";
-
 const fetcher = async (url: string) => {
   try {
     const response = await fetch(url);

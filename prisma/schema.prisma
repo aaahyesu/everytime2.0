@@ -99,8 +99,8 @@ model Room {
   chatInvisibleTo Int?
   Service         Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
   serviceId       Int 
-  users User[]
-  chats Chat[]
+  users           User[]
+  chats           Chat[]
 
   @@index([serviceId])
 }

@@ -34,7 +34,7 @@ const Upload: NextPage = () => {
   };
   useEffect(() => {
     if (data?.ok) {
-      router.replace("/");
+      router.replace("/club");
     }
   }, [data, router]);
   return (
@@ -115,15 +115,14 @@ const Upload: NextPage = () => {
           placeholder="모임설명"
           name="content"
         />
-        <Link href="#">
-          <div className="flex justify-center">
-            <div className="flex-col-2 flex">
-              <button className=" mt-5 w-[320px] flex-1  border-transparent bg-white px-10 py-3 text-lg font-bold text-black rounded-[10px] border border-zinc-300 justify-center items-center inline-flex">
-                모임 만들기
-              </button>
-            </div>
+
+        <div className="flex justify-center">
+          <div className="flex-col-2 flex">
+            <button className=" mt-5 w-[320px] flex-1  border-transparent bg-white px-10 py-3 text-lg font-bold text-black rounded-[10px] border border-zinc-300 justify-center items-center inline-flex">
+              모임 만들기
+            </button>
           </div>
-        </Link>
+        </div>
       </form>
     </Layout>
   );

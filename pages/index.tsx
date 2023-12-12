@@ -1,199 +1,74 @@
-import { useState, useEffect } from "react";
 import type { NextPage } from "next";
-import { PrismaClient } from "@prisma/client";
-import Layout from "@/components/navbar";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import useMutation from "@/libs/client/useMutation";
+import Input from "@/components/input";
 import Link from "next/link";
 
-const Home: NextPage = () => {
-  const [showModal, setShowModal] = useState(true);
+interface MutationResult {
+  ok: boolean;
+}
 
-  useEffect(() => {
-    setShowModal(true);
-  }, []);
+interface EnterForm {
+  name?: string;
+}
 
-  const closeModal = () => {
-    setShowModal(false);
+const SignUp: NextPage = () => {
+  const router = useRouter();
+  const [enter, { loading, data, error }] =
+    useMutation<MutationResult>("/api/users/enter");
+  const { register, handleSubmit } = useForm<EnterForm>();
+  const onValid = (validForm: EnterForm) => {
+    if (loading) return;
+    enter(validForm);
   };
+  useEffect(() => {
+    if (data?.ok) {
+      router.replace(`/main`);
+    }
+  }, [data, router]);
 
   return (
-    <Layout hasTabBar title="한경대학교">
-      {showModal && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-50">
-          <div className="bg-white p-4 rounded-lg">
-            <img className="w-80" src="/popup.png"></img>
-            <button className="mt-6 absolute bottom-100 ml-32 text-white text-lg font-bold" onClick={closeModal}>
-              X Close
-            </button>
-          </div>
+    <div className="w-full min-h-screen flex justify-center items-center flex-wrap">
+      <div className="w-full max-w-xs p-4">
+        <div className="flex items-center justify-between my-12">
+          <img src="/logo.png" alt="logo" className="inline-block w-14 h-14" />
+          <h2 className="text-gray-700 text-base font-normal pl-5">
+            회원가입을 통해
+            <br />
+            에브리타임을 시작하세요!
+          </h2>
         </div>
-      )}
-      <div className="bg-white flex-col">
-        <div className="overflow-x-auto mt-20 mb-4">
-          <div className="inline-flex">
-            <div className="w-80 h-48 border-2 border-grey-400 rounded-lg ml-4 mr-4">
-              <div className="flex flex-col">
-                <div className="flex flex-row ml-4 mt-4">
-                  <img className="" src="table.png"></img>
-                  <div>
-                    <div className="w-30 ml-2 text-xl font-bold">말하기와 글쓰기</div>
-                    <div className="w-30 ml-2 text-xs text-red-600">1시간 19분 후 수업 끝</div>
-                  </div>
-                </div>
-                <div className="font-bold-l ml-16 mt-6">말하기와 글쓰기 교제 <br /> 레포트 제출하기 <br /> 글쓰기 과제 제출하기</div>
-              </div>
-            </div>
 
-            <div className="w-80 h-48 border-2 border-grey-400 rounded-lg ml-4 mr-4">
-              <div className="flex flex-col">
-                <div className="flex flex-row ml-4 mt-4">
-                  <img className="" src="table.png"></img>
-                  <div>
-                    <div className="w-30 ml-2 text-xl font-bold">문제해결프로제트1</div>
-                    <div className="w-30 ml-2 text-xs text-red-600">3시간 49분 후 수업 끝</div>
-                  </div>
-                </div>
-                <div className="font-bold-l ml-16 mt-6"> 레포트 제출하기 <br /> define 단계 정리</div>
-              </div>
-            </div>
+        <form onSubmit={handleSubmit(onValid)}>
+          <div className="w-full p-2 mb-4 border rounded focus:outline-none focus:border-blue-500">
+            <div className="mb-2" />
+            <Input
+              register={register("name", { required: true })}
+              type="text"
+              name="userName"
+              placeholder="이름"
+              label=" 이름을 작성해주세요"
+              kind="text"
+              required
+            />
+          </div>
 
-            <div className="w-80 h-48 border-2 border-grey-400 rounded-lg ml-4 mr-4">
-              <div className="flex flex-col">
-                <div className="flex flex-row ml-4 mt-4">
-                  <img className="" src="table.png"></img>
-                  <div>
-                    <div className="w-30 ml-2 text-xl font-bold">웹프로그래밍</div>
-                    <div className="w-30 ml-2 text-xs text-red-600">2시간 19분 후 수업 끝</div>
-                  </div>
-                </div>
-                <div className="font-bold-l ml-16 mt-6">웹프로그래밍 교제 <br /> MashUp 코드 제출하기 <br />MashUp 설명레포트 제출하기</div>
-              </div>
-            </div>
-
-            <div className="w-80 h-48 border-2 border-grey-400 rounded-lg ml-4 mr-4">
-              <div className="flex flex-col">
-                <div className="flex flex-row ml-4 mt-4">
-                  <img className="" src="table.png"></img>
-                  <div>
-                    <div className="w-30 ml-2 text-xl font-bold">창의와 소통</div>
-                    <div className="w-30 ml-2 text-xs text-red-600">4시간 49분 후 수업 끝</div>
-                  </div>
-                </div>
-                <div className="font-bold-l ml-16 mt-6">레포트 제출하기 <br /> 교제 요약본 제출하기</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="overflow-x-scroll mt-4 mb-2 h-24">
-          <div className="inline-flex h">
-            <div className="h-16 w-16 ml-3 mr-3 justify-center">
-              <Link href="https://www.hknu.ac.kr/kor/index.do?main=Y">
-                <img className="ml-2" src="/schoolBanner/schoolHome.png"></img>
-                <div className="text-center font-sm">학교홈</div>
-              </Link>
-            </div>
-            <div className="h-16 w-16 text-center ml-3 mr-3 justify-center">
-              <Link href="https://www.hknu.ac.kr/kor/145/subview.do">
-                <img className="ml-2" src="/schoolBanner/schoolEvent.png"></img>
-                <div className="text-center font-sm">학사일정</div>
-              </Link>
-            </div>
-            <div className="h-16 w-16 text-center ml-3 mr-3 justify-center">
-              <Link href="https://www.hknu.ac.kr/kor/145/subview.do">
-                <img className="ml-2" src="/schoolBanner/schoolNoti.png"></img>
-                <div className="text-center font-sm">학사공지</div>
-              </Link>
-            </div>
-            <div className="h-16 w-16 text-center ml-3 mr-3 justify-center">
-              <Link href="https://lib.hknu.ac.kr/">
-                <img className="ml-2" src="/schoolBanner/schoolLib.png"></img>
-                <div className="text-center font-sm">도서관</div>
-              </Link>
-            </div>
-            <div className="h-16 w-16 text-center ml-3 mr-3 justify-center">
-              <Link href="https://mail.hknu.ac.kr/index.html?sso=ok">
-                <img className="ml-2" src="/schoolBanner/schoolMail.png"></img>
-                <div className="text-center font-sm ">웹메일</div>
-              </Link>
-            </div>
-            <div className="h-16 w-16 text-center ml-3 mr-3 justify-center">
-              <Link href="https://www.hknu.ac.kr/kor/176/subview.do">
-                <img className="ml-2" src="/schoolBanner/schoolDiet.png"></img>
-                <div className="text-center font-sm ">학생식당</div>
-              </Link>
-            </div>
-            <div className="h-16 w-16 text-center ml-3 mr-3 justify-center">
-              <Link href="https://www.hknu.ac.kr/kor/222/subview.do">
-                <img className="ml-2" src="/schoolBanner/schoolCom.png"></img>
-                <div className="text-center font-sm ">통학버스</div>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="w-11/12 h-44 border-2 rounded-lg border-grey ml-4 mb-5 flex-col">
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-xl mt-4 ml-4 font-bold">
-              즐겨찾는 게시판
-            </div>
-            <div className="text-red-600 mr-4 mt-5 w-18 h-5 text-sm">
-              더보기 &gt;
-            </div>
-          </div>
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">자유게시판</div>
-            <div className="h-5 text-sm mt-2 text-gray-500 mr-6">설문조사 부탁드립니다.</div>
-            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">1분 전</div>
-          </div>
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">비밀게시판</div>
-            <div className="h-5 text-sm mt-2 text-gray-500 ml-3">말 예쁘게하기 챌린지 1일차</div>
-            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">51분 전</div>
-          </div>
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">장터게시판</div>
-            <div className="h-5 text-sm mt-2 text-gray-500 mr-1">에어팟 프로 2세대 오른쪽</div>
-            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">13분 전</div>
-          </div>
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">정보게시판</div>
-            <div className="h-5 text-sm mt-2 text-gray-500 ml-1">한경국립대학교 학생역량진</div>
-            <div className="h-5 text-sm mt-2 mr-2 text-gray-500">2시간 전</div>
-          </div>
-        </div>
-        <div className="w-11/12 h-44 border-2 rounded-lg border-grey ml-4 mb-5 flex-col">
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-xl mt-4 ml-4 font-bold">
-              즐겨찾는 게시판
-            </div>
-            <div className="text-red-600 mr-4 mt-5 w-18 h-5 text-sm">
-              더보기 &gt;
-            </div>
-          </div>
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">스포츠</div>
-            <div className="h-5 text-sm mt-2 text-gray-500 mr-6">즐겁게 공찰 사람람</div>
-            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">4분 전</div>
-          </div>
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">밥친구</div>
-            <div className="h-5 text-sm mt-2 text-gray-500 ml-4">오늘 학식같이 먹을 사람</div>
-            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">36분 전</div>
-          </div>
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">봉사활동</div>
-            <div className="h-5 text-sm mt-2 text-gray-500 ml-4">해외봉사 같이 신청할 사람</div>
-            <div className="h-5 text-sm mt-2 ml-2 mr-2 text-gray-500">23분 전</div>
-          </div>
-          <div className="w-full justify-between flex flex-row">
-            <div className="w-26 h-5 text-base mt-2 ml-4 font-bold">여가/여행</div>
-            <div className="h-5 text-sm mt-2 text-gray-500">주말에 설경 찍으러 갈 분</div>
-            <div className="h-5 text-sm mt-2 mr-2 text-gray-500">1시간 전</div>
-          </div>
+          <button className="w-full p-2 bg-red-500 text-white rounded">
+            입장하기
+          </button>
+        </form>
+        <div className="text-red-600 text-center mt-5 font-medium text-base">
+          <span className="text-gray-600 font-light mr-2">
+            이미 가입하셨나요?
+          </span>
+          <Link href="/login" className="underline">
+            로그인
+          </Link>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
-
-
-export default Home;
-
+export default SignUp;

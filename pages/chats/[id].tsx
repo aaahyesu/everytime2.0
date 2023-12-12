@@ -81,15 +81,15 @@ const ChatDetail: NextPage = () => {
           height="34"
           rx="17"
           stroke="#8A8A8A"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           id="Vector 37"
           d="M25.0711 11.0711L10.9289 25.2132M25.0711 25.2132L10.9289 11.0711"
           stroke="#8A8A8A"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
     </svg>
@@ -110,15 +110,15 @@ const ChatDetail: NextPage = () => {
           height="34"
           rx="17"
           stroke="#8A8A8A"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           id="Vector 37"
           d="M18 8V28M28 18H8"
           stroke="#8A8A8A"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
     </svg>
@@ -371,7 +371,7 @@ const ChatDetail: NextPage = () => {
                               id="Vector 84"
                               d="M42 14V38C42 40.2091 40.2091 42 38 42H14C11.7909 42 10 40.2091 10 38V14C10 11.7909 11.7909 10 14 10H38C40.2091 10 42 11.7909 42 14Z"
                               stroke="black"
-                              stroke-width="2"
+                              strokeWidth="2"
                             />
                             <path
                               id="Vector 83"
@@ -399,7 +399,7 @@ const ChatDetail: NextPage = () => {
                               id="Vector 85"
                               d="M42 9V31C42 33.2091 40.2091 35 38 35H6C3.79086 35 2 33.2091 2 31V9C2 6.79086 3.79086 5 6 5H38C40.2091 5 42 6.79086 42 9Z"
                               stroke="black"
-                              stroke-width="2"
+                              strokeWidth="2"
                             />
                             <path
                               id="Vector"

@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import withHandler, { ResponseType } from "@/libs/server/withHandler";
 import client from "@/libs/server/client";
 import { withApiSession } from "@/libs/server/withSession";
+import prisma from "@/libs/client/prisma";
 
 async function handler(
   req: NextApiRequest,
@@ -29,6 +30,22 @@ async function handler(
         },
       },
       orderBy: { createdAt: "desc" },
+    });
+
+    const roomWithUserCount = await client.room.findMany({
+      include: {
+        _count: {
+          select: {
+            users: true, // 사용자(User) 수 가져오기
+          },
+        },
+      },
+      orderBy: { createdAt: "desc" },
+    });
+
+    // 사용자(User) 수 출력
+    roomWithUserCount.forEach((room) => {
+      console.log(`Room ID: ${room.id}, User Count: ${room._count.users}`);
     });
 
     res.status(200).json({
