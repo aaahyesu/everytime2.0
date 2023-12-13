@@ -193,8 +193,6 @@ const ServiceDetail: NextPage<ServiceResponse> = ({ service }) => {
               {data?.service?.content}
             </span>
           </div>
-          <div className="pt-3" />
-          <img className="w-82 h-52" src="/profile2.png" />
 
           <div className="flex items-center justify-between space-x-1 pt-4 mt-5">
             <Button

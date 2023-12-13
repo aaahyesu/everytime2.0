@@ -11,6 +11,8 @@ interface LayoutProps {
   head?: boolean;
   head2?: boolean;
   head3?: boolean;
+  head4?: boolean;
+  head5?: boolean;
   exit?: () => Promise<void>;
   children: React.ReactNode;
 }
@@ -23,6 +25,8 @@ export default function Layout({
   head,
   head2,
   head3,
+  head4,
+  head5,
   exit,
 }: LayoutProps) {
   const router = useRouter();
@@ -38,7 +42,7 @@ export default function Layout({
     <div>
       <div
         className={cls(
-          !canGoBack ? "justify-right" : "",
+          !canGoBack ? "justify-right " : "",
           !exit ? "justify-end" : "",
           "justify-right fixed top-0 flex h-[72px] w-full max-w-xl items-center border-b-2 bg-white px-4 text-xl font-bold font-['Apple SD Gothic Neo'] leading-tight font-[600] text-gray-800"
         )}
@@ -90,6 +94,49 @@ export default function Layout({
           <div className="flex justify-between w-full items-center px-2 ">
             <div className="flex flex-col">
               <p className="text-red-700 text-xs font-medium font-['Apple SD Gothic Neo'] leading-3">
+                한경국립대학교
+              </p>
+              <div className="flex w-96 h-18 justify-start items-center gap-4">
+                <Link
+                  href="/club"
+                  className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
+                >
+                  모임목록
+                </Link>
+                <Link
+                  href="/chats"
+                  className="text-black text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal ml-2"
+                >
+                  채팅
+                </Link>
+                <div className="flex ml-[100px]">
+                  <Link href="services/search" className="text-black relative">
+                    <rect width="100%" height="100%" fill="red" />
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="Frame 17">
+                        <path
+                          id="Vector"
+                          d="M21.2889 23L13.5889 15.3C12.9778 15.7889 12.275 16.1759 11.4806 16.4611C10.6861 16.7463 9.84074 16.8889 8.94445 16.8889C6.72407 16.8889 4.84511 16.1197 3.30756 14.5813C1.77 13.043 1.00081 11.164 1 8.94445C1 6.72407 1.76919 4.84511 3.30756 3.30756C4.84593 1.77 6.72489 1.00081 8.94445 1C11.1648 1 13.0438 1.76919 14.5813 3.30756C16.1189 4.84593 16.8881 6.72489 16.8889 8.94445C16.8889 9.84074 16.7463 10.6861 16.4611 11.4806C16.1759 12.275 15.7889 12.9778 15.3 13.5889L23 21.2889L21.2889 23ZM8.94445 14.4444C10.4722 14.4444 11.771 13.9095 12.8409 12.8397C13.9107 11.7698 14.4453 10.4714 14.4444 8.94445C14.4444 7.41667 13.9095 6.11785 12.8397 5.048C11.7698 3.97815 10.4714 3.44363 8.94445 3.44444C7.41667 3.44444 6.11785 3.97937 5.048 5.04922C3.97815 6.11907 3.44363 7.41748 3.44444 8.94445C3.44444 10.4722 3.97937 11.771 5.04922 12.8409C6.11907 13.9107 7.41748 14.4453 8.94445 14.4444Z"
+                          fill="black"
+                        />
+                      </g>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+        {head4 ? (
+          <div className="flex justify-between w-full items-center px-2 ">
+            <div className="flex flex-col">
+              <p className="text-red-700 text-xs font-medium font-['Apple SD Gothic Neo'] leading-3">
                 2023년도 2학기
               </p>
               <div className="flex w-96 h-18 justify-start items-center gap-4">
@@ -102,6 +149,49 @@ export default function Layout({
                 <Link
                   href="/gradcal"
                   className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal ml-2"
+                >
+                  학점계산기
+                </Link>
+                <div className="flex ml-[100px]">
+                  <Link href="services/search" className="text-black relative">
+                    <rect width="100%" height="100%" fill="red" />
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="Frame 17">
+                        <path
+                          id="Vector"
+                          d="M21.2889 23L13.5889 15.3C12.9778 15.7889 12.275 16.1759 11.4806 16.4611C10.6861 16.7463 9.84074 16.8889 8.94445 16.8889C6.72407 16.8889 4.84511 16.1197 3.30756 14.5813C1.77 13.043 1.00081 11.164 1 8.94445C1 6.72407 1.76919 4.84511 3.30756 3.30756C4.84593 1.77 6.72489 1.00081 8.94445 1C11.1648 1 13.0438 1.76919 14.5813 3.30756C16.1189 4.84593 16.8881 6.72489 16.8889 8.94445C16.8889 9.84074 16.7463 10.6861 16.4611 11.4806C16.1759 12.275 15.7889 12.9778 15.3 13.5889L23 21.2889L21.2889 23ZM8.94445 14.4444C10.4722 14.4444 11.771 13.9095 12.8409 12.8397C13.9107 11.7698 14.4453 10.4714 14.4444 8.94445C14.4444 7.41667 13.9095 6.11785 12.8397 5.048C11.7698 3.97815 10.4714 3.44363 8.94445 3.44444C7.41667 3.44444 6.11785 3.97937 5.048 5.04922C3.97815 6.11907 3.44363 7.41748 3.44444 8.94445C3.44444 10.4722 3.97937 11.771 5.04922 12.8409C6.11907 13.9107 7.41748 14.4453 8.94445 14.4444Z"
+                          fill="black"
+                        />
+                      </g>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+        {head5 ? (
+          <div className="flex justify-between w-full items-center px-2 ">
+            <div className="flex flex-col">
+              <p className="text-red-700 text-xs font-medium font-['Apple SD Gothic Neo'] leading-3">
+                2023년도 2학기
+              </p>
+              <div className="flex w-96 h-18 justify-start items-center gap-4">
+                <Link
+                  href="/schedule"
+                  className="text-zinc-300 text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal"
+                >
+                  시간표
+                </Link>
+                <Link
+                  href="/gradcal"
+                  className="text-black text-2xl font-bold font-['Apple SD Gothic Neo'] leading-normal ml-2"
                 >
                   학점계산기
                 </Link>
@@ -221,6 +311,7 @@ export default function Layout({
               height="24"
               viewBox="0 0 24 24"
               fill="none"
+              className="mr-[330px]"
             >
               <path
                 d="M17 4L7 12L17 20"
