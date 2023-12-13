@@ -291,7 +291,7 @@ export default function Layout({
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              className="mr-[10px]"
+              className="mr-0"
             >
               <path
                 d="M17 4L7 12L17 20"
