@@ -14,6 +14,7 @@ interface LayoutProps {
   head4?: boolean;
   head5?: boolean;
   exit?: () => Promise<void>;
+  review?: boolean;
   children: React.ReactNode;
 }
 
@@ -27,6 +28,7 @@ export default function Layout({
   head3,
   head4,
   head5,
+  review,
   exit,
 }: LayoutProps) {
   const router = useRouter();
@@ -216,6 +218,7 @@ export default function Layout({
             </div>
           </div>
         ) : null}
+
         {head ? (
           <div className="flex justify-between w-full items-center px-2 ">
             <div className="flex flex-col">
@@ -316,6 +319,7 @@ export default function Layout({
             </span>
           </div>
         ) : null}
+
         {exit ? (
           <button onClick={onClick}>
             <svg

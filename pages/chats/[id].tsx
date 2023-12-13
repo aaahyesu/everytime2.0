@@ -298,7 +298,7 @@ const ChatDetail: NextPage = () => {
   };
 
   return (
-    <Layout canGoBack hasTabBar exit={onExitRoom} title="채팅">
+    <Layout canGoBack hasTabBar exit={onExitRoom} title="채팅" review>
       <article className="mb-10 min-h-[78vh] space-y-4 rounded-sm bg-white p-4 pt-20">
         {loadChatsLoading && (
           <h3 className="rounded-md bg-red-600 p-2 text-center text-lg text-white">
