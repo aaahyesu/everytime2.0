@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { ReactNode } from "react";
+import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ interface StyledContainerProps {
 }
 
 function StyledContainer({ children }: StyledContainerProps) {
-  return <Container>{children}</Container>;
+  return;
 }
 
 export default StyledContainer;
