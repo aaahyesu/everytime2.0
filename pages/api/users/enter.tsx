@@ -7,16 +7,10 @@ async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseType>
 ) {
-  const { userId, password, email, birth, name } = req.body;
-  const user = email ? { email } : {};
-  if (!user)
-    return res.status(400).json({
-      ok: false,
-      message: "",
-    });
+  const { name } = req.body;
+
   const existingUser = await client.user.findFirst({
     where: {
-      email: user?.email,
       ...(name && { name }),
     },
   });
@@ -34,11 +28,7 @@ async function handler(
   } else {
     const createUser = await client.user.create({
       data: {
-        userId,
-        password,
         name,
-        email,
-        birth,
       },
     });
 

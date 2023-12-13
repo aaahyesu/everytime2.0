@@ -13,20 +13,11 @@ datasource db {
 
 model User{
   id                Int            @id @default(autoincrement())
-  phone             Int?           @unique
-  userId            String?        @unique
-  password          String?
-  email             String?        @unique
-  birth             String?
   name              String        @unique
-  nickName           String?        @unique
-  school            String?
   services          Service[]       @relation(name: "services")
   serviceUser       Service[]       @relation(name: "serviceUser")
   createdAt         DateTime        @default(now())
   updatedAt         DateTime        @updatedAt
-  writtenReviews    Review[]        @relation(name: "WrittenReviews")
-  receivedReviews   Review[]        @relation(name: "ReceivedReviews")  
   liked             Liked[] 
   chats             Chat[]
   rooms             Room[]
@@ -46,7 +37,6 @@ model Service {
   content           String      @db.MediumText
   maxNum            Int
   liked             Liked[]
-  reivew            Review[]  
   room              Room[]
   category          Category?
   status            Status?
@@ -120,26 +110,5 @@ model Chat {
   @@index([roomId])
 }
 
-model Review {
-  id        Int      @id @default(autoincrement())
-  score1        Int      @default(3)
-  score2        Int      @default(3)
-  score3        Int      @default(3)
-  score4        Int      @default(3)  
-  createdBy      User    @relation(name: "WrittenReviews", fields: [createdById], references: [id], onDelete: Cascade)
-  createdById    Int      // 요청자(리뷰 쓰는)
-  createdFor     User?    @relation(name: "ReceivedReviews", fields: [createdForId], references: [id], onDelete: Cascade)
-  createdForId   Int      // 제공자(리뷰 받는)
-  serviceId      Int?      
-  serviceInfo    Service?  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
 
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
-
-  @@index([createdById])
-  @@index([createdForId])
-  @@index([serviceId])
-  
-}
 
