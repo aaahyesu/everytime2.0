@@ -5,7 +5,7 @@ import Layout from "@/components/navbar";
 
 export default function attended() {
   return (
-    <Layout hasTabBar head2>
+    <Layout head2 hasTabBar>
       <div className="w-full h-full">
         <img src="schooltimetable.jpg" className="mt-10 w-full h-full" />
       </div>
