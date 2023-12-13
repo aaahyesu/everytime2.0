@@ -109,26 +109,6 @@ export default function Layout({
                 >
                   채팅
                 </Link>
-                <div className="flex ml-[100px]">
-                  <Link href="services/search" className="text-black relative">
-                    <rect width="100%" height="100%" fill="red" />
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g id="Frame 17">
-                        <path
-                          id="Vector"
-                          d="M21.2889 23L13.5889 15.3C12.9778 15.7889 12.275 16.1759 11.4806 16.4611C10.6861 16.7463 9.84074 16.8889 8.94445 16.8889C6.72407 16.8889 4.84511 16.1197 3.30756 14.5813C1.77 13.043 1.00081 11.164 1 8.94445C1 6.72407 1.76919 4.84511 3.30756 3.30756C4.84593 1.77 6.72489 1.00081 8.94445 1C11.1648 1 13.0438 1.76919 14.5813 3.30756C16.1189 4.84593 16.8881 6.72489 16.8889 8.94445C16.8889 9.84074 16.7463 10.6861 16.4611 11.4806C16.1759 12.275 15.7889 12.9778 15.3 13.5889L23 21.2889L21.2889 23ZM8.94445 14.4444C10.4722 14.4444 11.771 13.9095 12.8409 12.8397C13.9107 11.7698 14.4453 10.4714 14.4444 8.94445C14.4444 7.41667 13.9095 6.11785 12.8397 5.048C11.7698 3.97815 10.4714 3.44363 8.94445 3.44444C7.41667 3.44444 6.11785 3.97937 5.048 5.04922C3.97815 6.11907 3.44363 7.41748 3.44444 8.94445C3.44444 10.4722 3.97937 11.771 5.04922 12.8409C6.11907 13.9107 7.41748 14.4453 8.94445 14.4444Z"
-                          fill="black"
-                        />
-                      </g>
-                    </svg>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
@@ -311,7 +291,7 @@ export default function Layout({
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              className="mr-[330px]"
+              className="mr-[10px]"
             >
               <path
                 d="M17 4L7 12L17 20"
@@ -328,7 +308,7 @@ export default function Layout({
             <span
               className={cls(
                 canGoBack
-                  ? "px-2 font-bold  font-['Apple SD Gothic Neo'] text-center text-xl"
+                  ? "px-2 font-bold font-['Apple SD Gothic Neo'] text-center text-xl"
                   : ""
               )}
             >
