@@ -147,7 +147,11 @@ export default function List({
           </div>
         </div>
         <div className="flex space-x-1.5 items-end justify-end">
-          <div className="w-20 h-20 bg-gray-400 rounded-md" />
+          <img
+            src="/profile2.png"
+            alt="Image"
+            className="w-20 h-20 border border-gray-200 rounded-md"
+          />
         </div>
       </div>
     </Link>

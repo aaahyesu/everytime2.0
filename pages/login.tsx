@@ -5,13 +5,13 @@ export default function Enter() {
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
 
-  const onChange = (e) => {
+  const onChange = (e: { target: { value: any; name: any } }) => {
     const { value, name } = e.target;
     if (name === "userId") setUserId(value);
     else if (name === "userPw") setUserPw(value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // 로그인 처리 로직 추가
   };

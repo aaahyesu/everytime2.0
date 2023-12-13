@@ -170,7 +170,7 @@ const ServiceDetail: NextPage<ServiceResponse> = ({ service }) => {
                   {/* 이미지 */}
                   <img
                     className="w-full h-full object-cover"
-                    src="/logo.png"
+                    src="/profile1.png"
                     alt="Profile Image"
                   />
                 </div>
@@ -194,7 +194,7 @@ const ServiceDetail: NextPage<ServiceResponse> = ({ service }) => {
             </span>
           </div>
           <div className="pt-3" />
-          <img className="w-82 h-52" src="/everytime.png" />
+          <img className="w-82 h-52" src="/profile2.png" />
 
           <div className="flex items-center justify-between space-x-1 pt-4 mt-5">
             <Button

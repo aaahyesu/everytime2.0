@@ -287,7 +287,7 @@ const Home: NextPage<ServiceResponse> = () => {
             <div className="h-5 text-sm mt-2 mr-2 text-gray-500">2시간 전</div>
           </div>
         </div>
-        <div className="w-11/12 h-44 border-2 rounded-lg border-grey ml-4 mb-5 flex-col">
+        <div className="w-11/12 h-52 border-2 rounded-lg border-grey ml-4 mb-5 flex-col">
           <div className="w-full justify-between flex flex-row">
             <div className="w-26 h-5 text-xl mt-4 ml-4 font-bold">
               최근 모임
