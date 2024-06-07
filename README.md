@@ -1,7 +1,8 @@
-<div align=center>
-	<a href="https://docs.google.com/presentation/d/19K5o0UeS2ta3ybux0F7yOr6iCZgmT571ByRZy17naaM/edit#slide=id.g2a36179de32_0_438">
-</a>
-  <p> ✨ 기존 Everytime의 채팅 + 모임 기능을 추가하여 대학 커뮤니티 기능을 활성화 ✨ </p>
+<div align="center">
+    <a href="https://docs.google.com/presentation/d/19K5o0UeS2ta3ybux0F7yOr6iCZgmT571ByRZy17naaM/edit#slide=id.g2a36179de32_0_438" style="text-decoration: none; color: inherit;">
+        <img src="https://ibb.co/XVt0JzT" alt="Icon" style="vertical-align: middle;" />
+        <span> 기존 Everytime의 채팅 + 모임 기능을 추가하여 대학 커뮤니티 기능을 활성화 </span>
+    </a>
 </div>
 <div align=center>
 	<h3>📚 Tech Stack 📚</h3>
