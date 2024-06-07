@@ -1,9 +1,6 @@
-<div align="center">
-    <a href="https://docs.google.com/presentation/d/19K5o0UeS2ta3ybux0F7yOr6iCZgmT571ByRZy17naaM/edit#slide=id.g2a36179de32_0_438" style="text-decoration: none; color: inherit;">
-        <p style="text-align: center;">(프로젝트 관련 자세한 자료는 Click!)</p>
-        <p style="text-align: center;">✨ 기존 Everytime의 채팅 + 모임 기능을 추가하여 대학 커뮤니티 기능을 활성화 ✨</p>
-    </a>
-</div>
+EveryTime 2.0
+==========
+[EveryTime 2.0 개발 자료](https://docs.google.com/presentation/d/19K5o0UeS2ta3ybux0F7yOr6iCZgmT571ByRZy17naaM/edit#slide=id.g2a65f1bde2d_16_15)   
 
 
 <div align=center>
