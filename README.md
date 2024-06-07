@@ -1,5 +1,6 @@
 <div align=center>
-	<img src="https://docs.google.com/presentation/d/19K5o0UeS2ta3ybux0F7yOr6iCZgmT571ByRZy17naaM/edit#slide=id.g2a36179de32_0_438?type=waving&color=auto&height=200&section=header&text=Everytime2.0%20Github!&fontSize=90" />
+	<a href="https://docs.google.com/presentation/d/19K5o0UeS2ta3ybux0F7yOr6iCZgmT571ByRZy17naaM/edit#slide=id.g2a36179de32_0_438">
+</a>
   <p> ✨ 기존 Everytime의 채팅 + 모임 기능을 추가하여 대학 커뮤니티 기능을 활성화 ✨ </p>
 </div>
 <div align=center>
