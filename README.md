@@ -1,7 +1,23 @@
 EveryTime 2.0
 ==========
-[EveryTime 2.0 개발 자료](https://docs.google.com/presentation/d/19K5o0UeS2ta3ybux0F7yOr6iCZgmT571ByRZy17naaM/edit#slide=id.g2a65f1bde2d_16_15)   
 
+[EveryTime 2.0 개발 자료](https://docs.google.com/presentation/d/19K5o0UeS2ta3ybux0F7yOr6iCZgmT571ByRZy17naaM/edit#slide=id.g2a65f1bde2d_16_15) 
+
+==========
+## 📌 주요 기능
+
+🎊 **모임 기능** 🎊
+- 모임 게시판 CRUD
+- 검색 / 필터링
+
+💬 **1:N 채팅** 💬
+- 모임 별 채팅방 신설
+- 채팅방 나가기 기능
+⭐️ **학점(리뷰) 기능** ⭐️
+- 모임 후 모임에 대한 학점(리뷰) 기록
+- 학점 통계(미완성)
+
+==========
 
 <div align=center>
 	<h3>📚 Tech Stack 📚</h3>
