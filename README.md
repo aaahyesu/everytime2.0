@@ -87,9 +87,6 @@
   - 게시글 채팅창 연계
   - 로그인 및 회원가입 기능
 
-<div align="center">
-    <img width="919" alt="스크린샷 2024-09-01 오후 11 06 33" src="https://github.com/user-attachments/assets/8f66d5bd-659b-48a3-8868-36d7f2854274">
-</div>
 
 ---
 
